@@ -8,31 +8,34 @@
     <link rel="stylesheet" href="./public/custom.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Salsa&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
 </head>
+
 <body class="text-center border-solid border-2 border-black my-14 mx-14">
+    
     <div class="backdrop-filter backdrop-blur-md p-4 border-solid border-2 border-gray-500 rounded-md">
+        
         <button id="savedRecipes" class=" mx-auto mt-5 text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 font-medium rounded-lg  px-5 py-2.5 text-center me-2 mb-2">SAVED RECIPES <i class="fa-solid fa-bookmark"></i></button>
         <button id="randomMeal" class=" mx-auto mt-5 text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 font-medium rounded-lg  px-5 py-2.5 text-center me-2 mb-2">RANDOM MEAL  <i class="fa-solid fa-shuffle"></i></button>
-    <header class="pt-32 mb-10 text-9xl">
-    <h1 class="text-orange-500 text-shadow">RecipeHub</h1>
-    </header>
-    <main>
-        <section class="mb-20">
-            <h2 class="text-2xl mb-7 text-white text-shadow">Food & Drink Recipe Ideas</h2>
-            <p class="text-2xl text-white text-shadow">Select what your palate desires, either food or drinks:</p>
+        <header class="pt-32 mb-10 text-9xl">
+            <h1 class="text-white text-shadow font-light">RecipeHub</h1>
+        </header>
+        <main>
+            <section class="mb-20">
+                <h2 class="text-2xl mb-7 text-white text-shadow">Food & Drink Recipe Ideas</h2>
+                <p class="text-2xl text-white text-shadow">Select what your palate desires, either food or drinks:</p>
             
-        </section>
-        <section class="text-3xl pb-14 grid grid-cols-2 gap-2">
-            <button id="foodRecipes" class="mx-auto focus:outline-none text-white bg-gray-900 hover:bg-gray-600 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg  px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">FOOD RECIPES  <i class="fa-solid fa-burger"></i></button>
-            <button id="drinkRecipes" class="mx-auto focus:outline-none text-white bg-gray-900 hover:bg-gray-600 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">DRINK RECIPES  <i class="fa-solid fa-martini-glass-citrus"></i></button>
-        </section>
-        
+            </section>
+            <section class="text-3xl pb-14 grid grid-cols-2 gap-2">
+                <button id="foodRecipes" class="mx-auto focus:outline-none text-white bg-gray-900 hover:bg-gray-600 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg  px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">FOOD RECIPES  <i class="fa-solid fa-burger"></i></button>           
+                <button id="drinkRecipes" class="mx-auto focus:outline-none text-white bg-gray-900 hover:bg-gray-600 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">DRINK RECIPES  <i class="fa-solid fa-martini-glass-citrus"></i></button>
+                
 
-    </main>
+            </section>  
+        </main>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="./public/script.js"></script>
 </body>
 </html>
