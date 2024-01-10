@@ -1,3 +1,4 @@
+
 // user input for search
 var userInput = document.querySelector('.');
 var savedRecipes = document.getElementById('savedRecipes');
@@ -48,5 +49,3 @@ var drinkItem = function (drink){
 savedRecipes.addEventListener('click',savedItems);
   foodRecipes.addEventListener('click', foodItem);
   drinkRecipess.addEventListener('click', drinkItem);
-  
-  
