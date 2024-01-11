@@ -3,38 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>RecipeHub</title>
     <link rel="stylesheet" href="./public/style.css">
     <link rel="stylesheet" href="./public/custom.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" type="image/x-icon" href="./public/favicon.png">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-
-<body class="text-center border-solid border-2 border-black my-14 mx-14">
+<body class="text-center">
+    <nav class="bg-transparent">
+        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+            <a href="" class="flex items-center space-x-3 rtl:space-x-reverse">
+            <span class="text-white self-center text-2xl font-semibold whitespace-nowrap dark:text-white">RecipeHub</span>
+            </a>
+            <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse text-2xl">
+                <button class="text-white rounded-t-lg before:ease relative h-12 w-40 overflow-hidden shadow-2xl before:absolute before:left-0 before:-ml-2 before:h-48 before:w-48 before:origin-top-right before:-translate-x-full before:translate-y-12 before:-rotate-90 before:bg-white before:transition-all before:duration-300 hover:text-black hover:shadow-black hover:before:-rotate-180"><span class="relative z-10"><i class="fa-solid fa-burger"></i> Food</span></button>
+                <button class="text-white rounded-t-lg before:ease relative h-12 w-40 overflow-hidden shadow-2xl before:absolute before:left-0 before:-ml-2 before:h-48 before:w-48 before:origin-top-right before:-translate-x-full before:translate-y-12 before:-rotate-90 before:bg-white before:transition-all before:duration-300 hover:text-black hover:shadow-black hover:before:-rotate-180"><span class="relative z-10"><i class="fa-solid fa-martini-glass-citrus"></i> Drink</span></button>
+                <button class="text-white rounded-t-lg before:ease relative h-12 w-60 overflow-hidden shadow-2xl before:absolute before:left-0 before:-ml-2 before:h-48 before:w-64 before:origin-top-right before:-translate-x-full before:translate-y-12 before:-rotate-90 before:bg-white before:transition-all before:duration-300 hover:text-black hover:shadow-black hover:before:-rotate-180"><span class="relative z-10"><i class="fa-solid fa-bookmark"></i> Saved Recipes</span></button>
+            </div>
+        </div>
+    </nav>
+ <main>
+    <section class="mt-40 mb-20">
+        <h2 id="mainItems" class="text-6xl mb-7 text-white text-shadow">Food & Drink Recipe Ideas</h2>
+        <p id="mainItems" class="text-2xl text-white text-shadow">Search for what your palate desires</p>
     
-    <div class="backdrop-filter backdrop-blur-md p-4 border-solid border-2 border-gray-500 rounded-md">
-        
-        <button id="savedRecipes" class=" mx-auto mt-5 text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 font-medium rounded-lg  px-5 py-2.5 text-center me-2 mb-2">SAVED RECIPES <i class="fa-solid fa-bookmark"></i></button>
-        <button id="randomMeal" class=" mx-auto mt-5 text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 font-medium rounded-lg  px-5 py-2.5 text-center me-2 mb-2">RANDOM MEAL  <i class="fa-solid fa-shuffle"></i></button>
-        <header class="pt-32 mb-10 text-9xl">
-            <h1 class="text-white text-shadow font-light">RecipeHub</h1>
-        </header>
-        <main>
-            <section class="mb-20">
-                <h2 class="text-2xl mb-7 text-white text-shadow">Food & Drink Recipe Ideas</h2>
-                <p class="text-2xl text-white text-shadow">Select what your palate desires, either food or drinks:</p>
-            
-            </section>
-            <section class="text-3xl pb-14 grid grid-cols-2 gap-2">
-                <button id="foodRecipes" class="mx-auto focus:outline-none text-white bg-gray-900 hover:bg-gray-600 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg  px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">FOOD RECIPES  <i class="fa-solid fa-burger"></i></button>           
-                <button id="drinkRecipes" class="mx-auto focus:outline-none text-white bg-gray-900 hover:bg-gray-600 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">DRINK RECIPES  <i class="fa-solid fa-martini-glass-citrus"></i></button>
-                
-
-            </section>  
-        </main>
-    </div>
+    <button id="mainItems" class="mt-40 text-2xl hover:before:bg-redborder-white relative h-[50px] w-64 overflow-hidden border border-white bg-transparent px-3 text-white shadow-2xl transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:bg-white before:transition-all before:duration-500 hover:text-black hover:shadow-white hover:before:left-0 hover:before:w-full"><span class="relative z-10">Random Meal</span></button>
+    </section>
+</main>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="./public/script.js"></script>
 </body>
