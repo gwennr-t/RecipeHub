@@ -19,25 +19,27 @@ var randomMealFunction = function (){
   // fetch function
 
   // fetch for food
-var foodItem = function (food){
-  fetch('https://api.spoonacular.com/recipes/complexSearch?apiKey=e39ea64b56894c6ea15c430bd91edef5&query=' + food + '&addRecipeInformation=true')
+var foodItem = function (){
+  fetch('https://api.spoonacular.com/recipes/complexSearch?apiKey=e39ea64b56894c6ea15c430bd91edef5&query=' + 'fish' + '&addRecipeInformation=true')
   .then(response => response.json())
   .then(data => {
-    var titleValue = data['results']['title'];
-    var imageValue = data['results']['image'];
-    var servingsValue = data['results']['servings'];
-    var readyInMinutesValue = data['results']['readyInMinutes'];
-    var dairyFreeValue = data['results']['dairyFree'];
-    var glutenFreeValue = data['results']['glutenFree'];
-    var descriptionValue = data['results']['summary'];
-
-    console.log(data)
+    for(var i=0; i<data.results.length; i++){
+      var item = {}
+      item.titleValue = data['results'][i]['title'];
+      item.imageValue = data['results'][i]['image'];
+      item.servingsValue = data['results'][i]['servings'];
+      item.readyInMinutesValue = data['results'][i]['readyInMinutes'];
+      item.dairyFreeValue = data['results'][i]['dairyFree'];
+      item.glutenFreeValue = data['results'][i]['glutenFree'];
+      item.descriptionValue = data['results'][i]['summary'];
+      console.log(item);
+    }
   })
   .catch(err => alert("Incorrect food item!"));
 }
   // fetch for drinks
-var drinkItem = function (drink){
-  fetch('www.thecocktaildb.com/api/json/v1/1/search.php?s=' + drink)
+var drinkItem = function (){
+  fetch('www.thecocktaildb.com/api/json/v1/1/search.php?s=' + userInput)
   .then(response => response.json())
   .then(data => {
     
