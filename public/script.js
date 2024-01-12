@@ -1,4 +1,3 @@
-
 // user input for search
 var userInput = document.querySelector('#searchInput');
 
@@ -85,10 +84,6 @@ function displayRandomDrink() {
   drinkFlavor.innerHTML = `Flavor profile: ${randomDrink.flavorProfile}`
   drinkCalories.innerHTML = `Calories: ${randomDrink.calories}`
 }
-
-
-
-
 
   // fetch function
 
