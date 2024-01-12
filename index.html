@@ -12,22 +12,24 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body class="text-center">
-    <nav class="bg-transparent">
+<body  class="text-center">
+    <header class="backdrop-blur-3xl  fixed top-0 w-full shadow-md">
+    <nav class="bg-transparent z-40">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-            <a href="" class="flex items-center space-x-3 rtl:space-x-reverse">
+            <a href="#top" class="flex items-center space-x-3 rtl:space-x-reverse">
             <span class="text-white self-center text-2xl font-semibold whitespace-nowrap dark:text-white">RecipeHub</span>
             </a>
             <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse text-2xl">
-                <button id="foodRecipes" class="text-white rounded-t-lg before:ease relative h-12 w-40 overflow-hidden shadow-2xl before:absolute before:left-0 before:-ml-2 before:h-48 before:w-48 before:origin-top-right before:-translate-x-full before:translate-y-12 before:-rotate-90 before:bg-white before:transition-all before:duration-300 hover:text-black hover:shadow-black hover:before:-rotate-180"><span class="relative z-10"><i class="fa-solid fa-burger"></i> Food</span></button>
-                <button id="drinkRecipes" class="text-white rounded-t-lg before:ease relative h-12 w-40 overflow-hidden shadow-2xl before:absolute before:left-0 before:-ml-2 before:h-48 before:w-48 before:origin-top-right before:-translate-x-full before:translate-y-12 before:-rotate-90 before:bg-white before:transition-all before:duration-300 hover:text-black hover:shadow-black hover:before:-rotate-180"><span class="relative z-10"><i class="fa-solid fa-martini-glass-citrus"></i> Drink</span></button>
-                <button id="savedRecipes" class="text-white rounded-t-lg before:ease relative h-12 w-60 overflow-hidden shadow-2xl before:absolute before:left-0 before:-ml-2 before:h-48 before:w-64 before:origin-top-right before:-translate-x-full before:translate-y-12 before:-rotate-90 before:bg-white before:transition-all before:duration-300 hover:text-black hover:shadow-black hover:before:-rotate-180"><span class="relative z-10"><i class="fa-solid fa-bookmark"></i> Saved Recipes</span></button>
+                <a href="#mainResults"><button id="foodRecipes" class="text-white rounded-t-lg before:ease relative h-12 w-40 overflow-hidden  before:absolute before:left-0 before:-ml-2 before:h-48 before:w-48 before:origin-top-right before:-translate-x-full before:translate-y-12 before:-rotate-90 before:bg-white before:transition-all before:duration-300 hover:text-black hover:shadow-black hover:before:-rotate-180"><span class="relative z-10"><i class="fa-solid fa-burger"></i> Food</span></button></a>
+                <button id="drinkRecipes" class="text-white rounded-t-lg before:ease relative h-12 w-40 overflow-hidden  before:absolute before:left-0 before:-ml-2 before:h-48 before:w-48 before:origin-top-right before:-translate-x-full before:translate-y-12 before:-rotate-90 before:bg-white before:transition-all before:duration-300 hover:text-black hover:shadow-black hover:before:-rotate-180"><span class="relative z-10"><i class="fa-solid fa-martini-glass-citrus"></i> Drink</span></button>
+                <button id="savedRecipes" class="text-white rounded-t-lg before:ease relative h-12 w-60 overflow-hidden  before:absolute before:left-0 before:-ml-2 before:h-48 before:w-64 before:origin-top-right before:-translate-x-full before:translate-y-12 before:-rotate-90 before:bg-white before:transition-all before:duration-300 hover:text-black hover:shadow-black hover:before:-rotate-180"><span class="relative z-10"><i class="fa-solid fa-bookmark"></i> Saved Recipes</span></button>
             </div>
         </div>
     </nav>
+    </header>
  <main>
-    <section class="mt-40 mb-20">
-        <h2 id="mainItems" class="text-6xl mb-7 text-white text-shadow">Food & Drink Recipe Ideas</h2>
+    <section class="mt-72 mb-72">
+        <h2 id="mainItems" class="text-6xl mb-16 text-white text-shadow">Food & Drink Recipe Ideas</h2>
         <p id="mainItems" class="text-2xl text-white text-shadow">Search for what your palate desires</p>
     
         <button id="mainItems" class="btn mt-40 text-2xl hover:before:bg-redborder-white relative h-[50px] w-64 overflow-hidden border border-white bg-transparent px-3 text-white shadow-2xl transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:bg-white before:transition-all before:duration-500 hover:text-black hover:shadow-white hover:before:left-0 hover:before:w-full" onclick="my_modal_3.showModal()"><span class="relative z-10">Random Meal</span></button>
@@ -37,7 +39,7 @@
                 <button class="btn mt-1 btn-sm btn-circle btn-ghost absolute right-2 top-2  hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white">✕</button>
               </form>
               <h3 class="font-bold text-2xl my-5 text-shadow ">Ramdon Meal!</h3>
-              <p class="py-4 border-t ">Title</p>
+              <p id="titleModal" class="py-4 border-t ">Title</p>
               <p class="py-4  ">Image</p>
               <p class="py-4 text-left">ReadyInMinutes:</p>
               <p class="py-4 text-left">Servings:</p>
@@ -49,36 +51,55 @@
                     <button data-modal-hide="default-modal" type="button" class="text-black bg-white hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"><i class="fa-solid fa-bookmark"></i> Save meal</button>
                 </div>
             </div>    
-          </dialog>
+        </dialog>
     </section>
-    <section class="mt-96 text-white bg-gray-800 h-screen">
-        
-        <aside class="text-center border-r-4 border-white mt-5 px-5">
+
+    <section class="pt-24 text-white main-bg h-screen">
+        <aside class="h-dvh text-center border-r-4 border-white mt-5 px-5">
             <p class="text-3xl py-10 px-5">What would you like to seatch for:</p>
-            <input class="text-2xl rounded-md" type="text" id="searchInput" placeholder="e.g. Chicken, Pasta...">
-            <button class="block text-center">Search</button>
+            <input class="py-2 pl-2 text-2xl text-black rounded-md w-full" type="text" id="searchInput" placeholder="e.g. Chicken, Pasta...">
+            <button id="foodSearch"class="mt-5 text-white text-xl rounded-full hover:before:bg-redborder-red-500 relative h-[50px] w-40 overflow-hidden border border-black bg-black px-3 shadow-2xl transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:bg-white before:transition-all before:duration-500 hover:text-black hover:shadow-white hover:before:left-0 hover:before:w-full"><span class="relative z-10">Search</span></button>
         </aside>
-        <div id="mainResults" class=" px-5 ">
-            <h3 class="font-bold text-2xl my-5 text-shadow ">Ramdon Meal!</h3>
-            <p class="py-4 border-t ">Title</p>
-            <p class="py-4  ">Image</p>
-            <p class="py-4 text-left">ReadyInMinutes:</p>
-            <p class="py-4 text-left">Servings:</p>
-            <p class="py-4 text-left">DairyFree:</p>
-            <p class="py-4 text-left">GlutenFree:</p>
-            <p class="py-4 text-left">Calories:</p>
+        <div id="mainResults" class="  px-5 ">
+            <h3 class="font-bold text-2xl my-5 text-shadow ">FOOD!</h3>
+            <div id="theGrid" class="grid grid-cols-3 gap-3 ">
+                <div class="bg-black">
+                    <p id="titleModal" class="py-4 border-t ">Title</p>
+              <p class="py-4  ">Image</p>
+              <p class="py-4 text-left">ReadyInMinutes:</p>
+              <p class="py-4 text-left">Servings:</p>
+              <p class="py-4 text-left">DairyFree:</p>
+              <p class="py-4 text-left">GlutenFree:</p>
+              <p class="py-4 text-left">Calories:</p>
+                </div>
+                <div class="bg-black">
+                    <p id="titleModal" class="py-4 border-t ">Title</p>
+              <p class="py-4  ">Image</p>
+              <p class="py-4 text-left">ReadyInMinutes:</p>
+              <p class="py-4 text-left">Servings:</p>
+              <p class="py-4 text-left">DairyFree:</p>
+              <p class="py-4 text-left">GlutenFree:</p>
+              <p class="py-4 text-left">Calories:</p>
+                </div>
+                <div class="bg-black">
+                    <p id="titleModal" class="py-4 border-t ">Title</p>
+              <p class="py-4  ">Image</p>
+              <p class="py-4 text-left">ReadyInMinutes:</p>
+              <p class="py-4 text-left">Servings:</p>
+              <p class="py-4 text-left">DairyFree:</p>
+              <p class="py-4 text-left">GlutenFree:</p>
+              <p class="py-4 text-left">Calories:</p>
+                </div>
+           
+            </div>
         </div>
     
-    <button id="randomMeal" class="mt-40 text-2xl hover:before:bg-redborder-white relative h-[50px] w-64 overflow-hidden border border-white bg-transparent px-3 text-white shadow-2xl transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:bg-white before:transition-all before:duration-500 hover:text-black hover:shadow-white hover:before:left-0 hover:before:w-full"><span class="relative z-10">Random Meal</span></button>
 
 
-<div id="resultCard" class="card">
-    <p id="resultText" class="text-white p-4 mt-2"></p>
-    <p id="resultMeal" class="text-white p-4 mt-2"></p>
-  </div>
-
+  
 
     </section>
+    
 </main>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="./public/script.js"></script>

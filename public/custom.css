@@ -14,7 +14,9 @@ body{
     border: 1px solid white;
     backdrop-filter: blur(20px);
 }
-
+header{
+    z-index: 99;
+}
 aside {
     width:20%;
     height:100%;
@@ -24,4 +26,8 @@ aside {
 #mainResults{
     width:80%;
     float:right;
+}
+
+.main-bg{
+    background-color: #191919;
 }
