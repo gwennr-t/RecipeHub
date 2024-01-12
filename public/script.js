@@ -1,5 +1,5 @@
 // user input for search
-var userInput = document.querySelector('.');
+var userInput = document.querySelector('#searchInput');
 var savedRecipes = document.getElementById('savedRecipes');
 var randomMeal = document.getElementById('randomMeal');
 var foodRecipes = document.getElementById('foodRecipes');
