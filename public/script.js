@@ -80,7 +80,7 @@ function displayRandomDrink() {
   modalDairy.innerHTML = `Dairy-free: ${randomFood.dairyFree}`
   modalGluten.innerHTML = `Gluten-free: ${randomFood.glutenFree}`
   drinkTitle.innerHTML = `${randomDrink.name}`
-  drinkIngredients.innerHTML = `Ingredients: ${randomDrink.ingredients}`
+  drinkIngredients.innerHTML = `Ingredients: ${randomDrink.ingredients.join(', ')}`
   drinkAlc.innerHTML = `Alcoholic: ${randomDrink.alcoholic}`
   drinkFlavor.innerHTML = `Flavor profile: ${randomDrink.flavorProfile}`
   drinkCalories.innerHTML = `Calories: ${randomDrink.calories}`
