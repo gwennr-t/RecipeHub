@@ -1,7 +1,5 @@
-
 // user input for search
 var userInput = document.querySelector('#searchInput');
-var foodSearch = document.querySelector('#foodSearch');
 
 
 
@@ -86,39 +84,36 @@ function displayRandomDrink() {
   drinkFlavor.innerHTML = `Flavor profile: ${randomDrink.flavorProfile}`
   drinkCalories.innerHTML = `Calories: ${randomDrink.calories}`
 }
+
   // fetch function
 
   // fetch for food
 var foodItem = function (){
-  fetch('https://api.spoonacular.com/recipes/complexSearch?apiKey=e39ea64b56894c6ea15c430bd91edef5&query=' + userInput.value + '&addRecipeInformation=true')
+  fetch('https://api.spoonacular.com/recipes/complexSearch?apiKey=e39ea64b56894c6ea15c430bd91edef5&query=' + 'fish' + '&addRecipeInformation=true')
   .then(response => response.json())
   .then(data => {
     for(var i=0; i<data.results.length; i++){
-      // var item = {}
-      var titleValue = data['results'][i]['title'];
-      var imageValue = data['results'][i]['image'];
-      var servingsValue = data['results'][i]['servings'];
-      var readyInMinutesValue = data['results'][i]['readyInMinutes'];
-      var dairyFreeValue = data['results'][i]['dairyFree'];
-      var glutenFreeValue = data['results'][i]['glutenFree'];
-      var descriptionValue = data['results'][i]['summary'];
-      console.log(titleValue);
-      titleModal.innerHTML = titleValue;
+      var item = {}
+      item.titleValue = data['results'][i]['title'];
+      item.imageValue = data['results'][i]['image'];
+      item.servingsValue = data['results'][i]['servings'];
+      item.readyInMinutesValue = data['results'][i]['readyInMinutes'];
+      item.dairyFreeValue = data['results'][i]['dairyFree'];
+      item.glutenFreeValue = data['results'][i]['glutenFree'];
+      item.descriptionValue = data['results'][i]['summary'];
+      console.log(item);
     }
   })
-  
   .catch(err => alert("Incorrect food item!"));
 }
   // fetch for drinks
 var drinkItem = function (){
-  fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=' + userInput.vlue)
+  fetch('www.thecocktaildb.com/api/json/v1/1/search.php?s=' + userInput)
   .then(response => response.json())
   .then(data => {
-    for(var i=0; i<data.drinks.length; i++){
-      // var item = {}
-      var nameValue = data['drinks'][i]['strDrink'];
-      console.log(nameValue);
-    }
+    
+
+    console.log(data)
   })
   .catch(err => alert("Incorrect drink item!"));
 }
@@ -133,12 +128,8 @@ var drinkItem = function (){
   window.localStorage.setItem("drinks", JSON.stringify(listOfDrinks));
 
 
-  // randomMeal.addEventListener('click',displayRandomDrink);
+  randomMeal.addEventListener('click',displayRandomDrink);
   savedRecipes.addEventListener('click',savedItems);
 
-  // randomMeal.addEventListener('click',randomMealFunction);
-  savedRecipes.addEventListener('click',savedItems);
-
-  foodSearch.addEventListener('click', drinkItem);
   foodRecipes.addEventListener('click', foodItem);
   drinkRecipes.addEventListener('click', drinkItem);
