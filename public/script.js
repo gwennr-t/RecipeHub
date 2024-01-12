@@ -1,5 +1,6 @@
 
 // user input for search
+var userInput = document.querySelector('#searchInput');
 
 
 
