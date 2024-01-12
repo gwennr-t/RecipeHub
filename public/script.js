@@ -20,37 +20,37 @@ var savedItems = function (){
 }
 
 var alcDrinks = [
-  {name: "Margarita", ingredients: ["Tequila", "Triple sec", "Lime juice", "Salt"], calories: 550},
-  {name: "Martini", ingredients: ["Gin", "Dry vermouth", "Lemon twist"], calories: 210},
-  {name: "Piña Colada", ingredients: ["White rum", "Coconut cream", "Pineapple juice"], calories: 490},
-  {name: "Mojito", ingredients: ["White rum", "Lime", "Mint", "Simple syrup", "Soda water"], calories: 160},
-  {name: "Old Fashioned", ingredients: ["Bourbon", "Angostura bitters", "Simple syrup", "Orange twist"], calories: 155},
-  {name: "Cosmopolitan", ingredients: ["Vodka", "Triple sec", "Cranberry juice", "Lime juice"], calories: 150},
-  {name: "Whiskey Sour", ingredients: ["Bourbon", "Lemon juice", "Simple syrup", "Cherry"], calories: 200},
-  { name: "Negroni", ingredients: ["Gin", "Campari", "Sweet vermouth"], calories: 220 },
-  { name: "Espresso Martini", ingredients: ["Vodka", "Coffee liqueur", "Espresso", "Simple syrup"], calories: 280 },
-  { name: "Daiquiri", ingredients: ["White rum", "Lime juice", "Simple syrup"], calories: 200 },
-  { name: "Long Island Iced Tea", ingredients: ["Vodka", "Tequila", "Rum", "Gin", "Triple sec", "Lemon juice", "Simple syrup", "Cola"], calories: 280 },
-  { name: "Sazerac", ingredients: ["Rye whiskey", "Absinthe", "Peychaud's bitters", "Sugar cube", "Lemon twist"], calories: 175 },
-  { name: "White Russian", ingredients: ["Vodka", "Coffee liqueur", "Heavy cream"], calories: 425 },
-  { name: "Tom Collins", ingredients: ["Gin", "Lemon juice", "Simple syrup", "Soda water"], calories: 185 }
+  { name: "Margarita", ingredients: ["Tequila", "Triple sec", "Lime juice", "Salt"], calories: 200, alcoholic: true, flavorProfile: "Citrus" },
+  { name: "Martini", ingredients: ["Gin", "Dry vermouth", "Lemon twist"], calories: 180, alcoholic: true, flavorProfile: "Herbaceous" },
+  { name: "Piña Colada", ingredients: ["Rum", "Coconut cream", "Pineapple juice"], calories: 350, alcoholic: true, flavorProfile: "Tropical" },
+  { name: "Mojito", ingredients: ["White rum", "Lime", "Mint", "Simple syrup", "Soda water"], calories: 160, alcoholic: true, flavorProfile: "Refreshing" },
+  { name: "Shirley Temple", ingredients: ["Ginger ale", "Grenadine", "Maraschino cherry"], calories: 80, alcoholic: false, flavorProfile: "Sweet" },
+  { name: "Virgin Mojito", ingredients: ["Lime", "Mint", "Simple syrup", "Soda water"], calories: 100, alcoholic: false, flavorProfile: "Refreshing" },
+  { name: "Virgin Piña Colada", ingredients: ["Coconut cream", "Pineapple juice", "Crushed ice"], calories: 250, alcoholic: false, flavorProfile: "Tropical" },
+  { name: "Cosmopolitan Mocktail", ingredients: ["Cranberry juice", "Lime juice", "Orange zest", "Soda water"], calories: 120, alcoholic: false, flavorProfile: "Citrusy" },
+  { name: "Old Fashioned", ingredients: ["Bourbon", "Simple syrup", "Angostura bitters", "Orange twist"], calories: 180, alcoholic: true, flavorProfile: "Classic" },
+  { name: "Mai Tai", ingredients: ["White rum", "Dark rum", "Orange liqueur", "Lime juice", "Orgeat syrup"], calories: 250, alcoholic: true, flavorProfile: "Exotic" },
+  { name: "Virgin Mary", ingredients: ["Tomato juice", "Lemon juice", "Worcestershire sauce", "Tabasco", "Celery salt"], calories: 60, alcoholic: false, flavorProfile: "Spicy" },
+  { name: "Gin and Tonic", ingredients: ["Gin", "Tonic water", "Lime wedge"], calories: 120, alcoholic: true, flavorProfile: "Crisp" },
+  { name: "Lemonade", ingredients: ["Lemon juice", "Simple syrup", "Water"], calories: 100, alcoholic: false, flavorProfile: "Tangy" },
+  { name: "Espresso Martini", ingredients: ["Vodka", "Coffee liqueur", "Espresso"], calories: 220, alcoholic: true, flavorProfile: "Bold" }
 ];
 
 const meals = [
-  { name: "Spaghetti Bolognese", ingredients: ["Ground beef", "Tomato sauce", "Onion", "Garlic", "Spaghetti", "Olive oil"], calories: 600 },
-  { name: "Chicken Alfredo", ingredients: ["Chicken breast", "Alfredo sauce", "Fettuccine pasta", "Parmesan cheese"], calories: 800 },
-  { name: "Vegetarian Stir Fry", ingredients: ["Tofu", "Broccoli", "Carrots", "Bell peppers", "Soy sauce", "Ginger", "Garlic"], calories: 450 },
-  { name: "Salmon with Lemon-Dill Sauce", ingredients: ["Salmon fillet", "Lemon", "Dill", "Olive oil", "Salt", "Pepper"], calories: 550 },
-  { name: "Shrimp and Avocado Salad", ingredients: ["Shrimp", "Avocado", "Lettuce", "Cherry tomatoes", "Lemon", "Olive oil"], calories: 400 },
-  { name: "Beef Tacos", ingredients: ["Ground beef", "Taco shells", "Lettuce", "Tomato", "Cheese", "Salsa"], calories: 480 },
-  { name: "Vegetable Curry", ingredients: ["Mixed vegetables", "Coconut milk", "Curry paste", "Rice"], calories: 600 },
-  { name: "Grilled Chicken Caesar Salad", ingredients: ["Chicken breast", "Romaine lettuce", "Croutons", "Parmesan cheese", "Caesar dressing"], calories: 350 },
-  { name: "Pasta Primavera", ingredients: ["Pasta", "Mixed vegetables", "Olive oil", "Garlic", "Parmesan cheese"], calories: 550 },
-  { name: "Teriyaki Salmon", ingredients: ["Salmon fillet", "Teriyaki sauce", "Broccoli", "Rice"], calories: 700 },
-  { name: "Caprese Salad", ingredients: ["Tomato", "Mozzarella cheese", "Basil", "Balsamic glaze"], calories: 300 },
-  { name: "Chicken Parmesan", ingredients: ["Chicken breast", "Tomato sauce", "Mozzarella cheese", "Parmesan cheese", "Pasta"], calories: 800 },
-  { name: "Spinach and Feta Stuffed Chicken", ingredients: ["Chicken breast", "Spinach", "Feta cheese", "Garlic", "Olive oil"], calories: 600 },
-  { name: "Quinoa Salad with Chickpeas", ingredients: ["Quinoa", "Chickpeas", "Cucumber", "Cherry tomatoes", "Feta cheese", "Olive oil"], calories: 450 }
+    { name: "Spaghetti Bolognese", ingredients: ["Ground beef", "Tomato sauce", "Onion", "Garlic", "Spaghetti", "Olive oil"], calories: 600, cookingTime: "30 minutes", dairyFree: false, glutenFree: false, servings: 4 },
+    { name: "Chicken Alfredo", ingredients: ["Chicken breast", "Alfredo sauce", "Fettuccine pasta", "Parmesan cheese"], calories: 800, cookingTime: "25 minutes", dairyFree: false, glutenFree: false, servings: 2 },
+    { name: "Vegetarian Stir Fry", ingredients: ["Tofu", "Broccoli", "Carrots", "Bell peppers", "Soy sauce", "Ginger", "Garlic"], calories: 450, cookingTime: "20 minutes", dairyFree: true, glutenFree: true, servings: 3 },
+    { name: "Salmon with Lemon-Dill Sauce", ingredients: ["Salmon fillet", "Lemon", "Dill", "Olive oil", "Salt", "Pepper"], calories: 550, cookingTime: "15 minutes", dairyFree: true, glutenFree: true, servings: 2 },
+    { name: "Shrimp and Avocado Salad", ingredients: ["Shrimp", "Avocado", "Lettuce", "Cherry tomatoes", "Lemon", "Olive oil"], calories: 400, cookingTime: "10 minutes", dairyFree: true, glutenFree: true, servings: 2 },
+    { name: "Beef Tacos", ingredients: ["Ground beef", "Taco shells", "Lettuce", "Tomato", "Cheese", "Salsa"], calories: 480, cookingTime: "20 minutes", dairyFree: false, glutenFree: false, servings: 3 },
+    { name: "Vegetable Curry", ingredients: ["Mixed vegetables", "Coconut milk", "Curry paste", "Rice"], calories: 600, cookingTime: "25 minutes", dairyFree: true, glutenFree: false, servings: 4 },
+    { name: "Grilled Chicken Caesar Salad", ingredients: ["Chicken breast", "Romaine lettuce", "Croutons", "Parmesan cheese", "Caesar dressing"], calories: 350, cookingTime: "15 minutes", dairyFree: false, glutenFree: true, servings: 2 },
+    { name: "Pasta Primavera", ingredients: ["Pasta", "Mixed vegetables", "Olive oil", "Garlic", "Parmesan cheese"], calories: 550, cookingTime: "20 minutes", dairyFree: true, glutenFree: false, servings: 4 },
+    { name: "Teriyaki Salmon", ingredients: ["Salmon fillet", "Teriyaki sauce", "Broccoli", "Rice"], calories: 700, cookingTime: "18 minutes", dairyFree: true, glutenFree: true, servings: 2 },
+    { name: "Caprese Salad", ingredients: ["Tomato", "Mozzarella cheese", "Basil", "Balsamic glaze"], calories: 300, cookingTime: "10 minutes", dairyFree: true, glutenFree: true, servings: 2 },
+    { name: "Chicken Parmesan", ingredients: ["Chicken breast", "Tomato sauce", "Mozzarella cheese", "Parmesan cheese", "Pasta"], calories: 800, cookingTime: "30 minutes", dairyFree: false, glutenFree: false, servings: 3 },
+    { name: "Spinach and Feta Stuffed Chicken", ingredients: ["Chicken breast", "Spinach", "Feta cheese", "Garlic", "Olive oil"], calories: 600, cookingTime: "25 minutes", dairyFree: false, glutenFree: true, servings: 2 },
+    { name: "Quinoa Salad with Chickpeas", ingredients: ["Quinoa", "Chickpeas", "Cucumber", "Cherry tomatoes", "Feta cheese", "Olive oil"], calories: 450, cookingTime: "15 minutes", dairyFree: true, glutenFree: true, servings: 3 }
 ];
 
 // function to get a random meal
@@ -63,19 +63,28 @@ function displayRandomDrink() {
   const randomDrink = getRandomDrink(alcDrinks);
   const randomFood = getRandomDrink(meals);
 
-  // Get the result text element and update its content
-  const resultTextElement = document.getElementById("resultText");
-  resultTextElement.innerHTML = `
-    <strong>Drink name:</strong> ${randomDrink.name} <br>
-    <strong>Ingredients:</strong> ${randomDrink.ingredients.join(', ')} <br>
-    <strong>Calories:</strong> ${randomDrink.calories} cal
-  `
-  const resultMealElement = document.getElementById("resultMeal");
-  resultMealElement.innerHTML = `
-    <strong>Meal name: </strong> ${randomFood.name} <br>
-    <strong>Ingredients:</strong> ${randomFood.ingredients.join(', ')} <br>
-    <strong>Calories:</strong> ${randomMeal.calories} cal
-  `
+  const modalTitle = document.getElementById('modalTitle');
+  const modalCalories = document.getElementById('modalCalories');
+  const modalServing = document.getElementById('modalServing');
+  const modalDairy = document.getElementById('modalDairy');
+  const modalGluten = document.getElementById('modalGluten');
+  const modalTime = document.getElementById('modalTime');
+  const drinkTitle = document.getElementById('drinkTitle');
+  const drinkIngredients = document.getElementById('drinkIngredients');
+  const drinkAlc = document.getElementById('drinkAlc');
+  const drinkFlavor = document.getElementById('drinkFlavor');
+  const drinkCalories = document.getElementById('drinkCalories');
+  modalTitle.innerHTML = `${randomFood.name}`
+  modalCalories.innerHTML = `Calories: ${randomFood.calories}`
+  modalServing.innerHTML = `Servings: ${randomFood.servings}`
+  modalTime.innerHTML = `Cooking time: ${randomFood.cookingTime}`
+  modalDairy.innerHTML = `Dairy-free: ${randomFood.dairyFree}`
+  modalGluten.innerHTML = `Gluten-free: ${randomFood.glutenFree}`
+  drinkTitle.innerHTML = `${randomDrink.name}`
+  drinkIngredients.innerHTML = `Ingredients: ${randomDrink.ingredients.join(', ')}`
+  drinkAlc.innerHTML = `Alcoholic: ${randomDrink.alcoholic}`
+  drinkFlavor.innerHTML = `Flavor profile: ${randomDrink.flavorProfile}`
+  drinkCalories.innerHTML = `Calories: ${randomDrink.calories}`
 }
   // fetch function
 
@@ -131,4 +140,5 @@ var drinkItem = function (){
   savedRecipes.addEventListener('click',savedItems);
 
   foodSearch.addEventListener('click', drinkItem);
+  foodRecipes.addEventListener('click', foodItem);
   drinkRecipes.addEventListener('click', drinkItem);

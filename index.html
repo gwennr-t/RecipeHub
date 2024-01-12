@@ -32,20 +32,33 @@
         <h2 id="mainItems" class="text-6xl mb-16 text-white text-shadow">Food & Drink Recipe Ideas</h2>
         <p id="mainItems" class="text-2xl text-white text-shadow">Search for what your palate desires</p>
     
-        <button id="mainItems" class="btn mt-40 text-2xl hover:before:bg-redborder-white relative h-[50px] w-64 overflow-hidden border border-white bg-transparent px-3 text-white shadow-2xl transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:bg-white before:transition-all before:duration-500 hover:text-black hover:shadow-white hover:before:left-0 hover:before:w-full" onclick="my_modal_3.showModal()"><span class="relative z-10">Random Meal</span></button>
-        <dialog id="my_modal_3" class="modal text-white relative backdrop-filter max-w-2xl rounded-md shadow dark:bg-gray-700 border border-solid border-white">
-            <div class="modal-box m-5 w-96">
+        <button id="randomMeal" class="btn mt-40 text-2xl hover:before:bg-redborder-white relative h-[50px] w-64 overflow-hidden border border-white bg-transparent px-3 text-white shadow-2xl transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:bg-white before:transition-all before:duration-500 hover:text-black hover:shadow-white hover:before:left-0 hover:before:w-full" onclick="my_modal_3.showModal()"><span class="relative z-10">Random Meal</span></button>
+        <dialog id="my_modal_3" class="modal text-white relative backdrop-filter w-3/6 rounded-md shadow dark:bg-gray-700 border border-solid border-white">
+            <div class="modal-box m-5">
               <form method="dialog">
                 <button class="btn mt-1 btn-sm btn-circle btn-ghost absolute right-2 top-2  hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white">✕</button>
               </form>
-              <h3 class="font-bold text-2xl my-5 text-shadow ">Ramdon Meal!</h3>
-              <p id="titleModal" class="py-4 border-t ">Title</p>
-              <p class="py-4  ">Image</p>
-              <p class="py-4 text-left">ReadyInMinutes:</p>
-              <p class="py-4 text-left">Servings:</p>
-              <p class="py-4 text-left">DairyFree:</p>
-              <p class="py-4 text-left">GlutenFree:</p>
-              <p class="py-4 text-left">Calories:</p>
+              <div class="flex">
+                <div class="p-4 w-1/2">
+                    <h3 class="font-bold text-2xl my-5 text-shadow ">Random Meal!</h3>
+                  <p id="modalTitle" class="py-4 border-t ">Title</p>
+                  <p id="modalPic" class="py-4  ">Image</p>
+                  <p id="modalTime" class="py-4 text-left">ReadyInMinutes:</p>
+                  <p id="modalServing" class="py-4 text-left">Servings:</p>
+                  <p id="modalDairy" class="py-4 text-left">DairyFree:</p>
+                  <p id="modalGluten" class="py-4 text-left">GlutenFree:</p>
+                  <p id="modalCalories" class="py-4 text-left">Calories:</p>
+                  </div>
+                  <div class="p-4 w-1/2">
+                    <h3 class="font-bold text-2xl my-5 text-shadow ">Random Drink!</h3>
+                    <p id="drinkTitle" class="py-4 border-t ">Title</p>
+                    <p id="drinkImage" class="py-4  ">Image</p>
+                    <p id="drinkIngredients" class="py-4 text-left">Ingredients:</p>
+                    <p id="drinkAlc" class="py-4 text-left">Alcoholic:</p>
+                    <p id="drinkFlavor" class="py-4 text-left">Flavor Profile:</p>
+                    <p id="drinkCalories" class="py-4 text-left">Calories:</p>
+                  </div>
+              </div>
                 <div class="flex justify-center items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
                     <button data-modal-hide="default-modal" type="button" class="text-black mr-3 bg-white hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"><i class="fa-solid fa-check-to-slot"></i> Check the recipe!</button>
                     <button data-modal-hide="default-modal" type="button" class="text-black bg-white hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"><i class="fa-solid fa-bookmark"></i> Save meal</button>
@@ -90,16 +103,9 @@
               <p class="py-4 text-left">GlutenFree:</p>
               <p class="py-4 text-left">Calories:</p>
                 </div>
-           
             </div>
         </div>
-    
-
-
-  
-
     </section>
-    
 </main>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="./public/script.js"></script>
