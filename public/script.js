@@ -10,7 +10,8 @@ var foodSearch = document.getElementById('foodSearch');
 var drinkSearch = document.getElementById('drinkSearch');
 var listOfFood = [];
 var listOfDrinks = [];
-var foodResultContent = document.getElementById('food-result-content')
+var foodResultContent = document.getElementById('food-result-content');
+var drinkResultContent = document.getElementById('drink-result-content');
 
 // function to save items
 var savedItems = function (){
@@ -110,7 +111,7 @@ var foodItem = function (){
     
         var bodyContent = document.createElement('p');
     
-        bodyContent.innerHTML = '<strong>Title: </strong>' + titleValue + '<br/>' + '<img src=' + imageValue + '/>' + '<br/>' + '<strong>Servings: </strong>' + servingsValue + '<br/>' + '<strong>Ready In: </strong>' + readyInMinutesValue + ' minutes' + '<br/>' +'<strong>Dairy Free: </strong>' + dairyFreeValue + '<br/>' + '<strong>Gluten Free: </strong>' + glutenFreeValue
+        bodyContent.innerHTML = '<strong>Name: </strong>' + titleValue + '<br/>' + '<img src=' + imageValue + '/>' + '<br/>' + '<strong>Servings: </strong>' + servingsValue + '<br/>' + '<strong>Ready In: </strong>' + readyInMinutesValue + ' minutes' + '<br/>' +'<strong>Dairy Free: </strong>' + dairyFreeValue + '<br/>' + '<strong>Gluten Free: </strong>' + glutenFreeValue
     
         foodBody.append(bodyContent);
         foodResultContent.append(foodCard);
@@ -129,15 +130,31 @@ var drinkItem = function (){
 
       var nameValue = data['drinks'][i]['strDrink'];
       var thumbValue = data['drinks'][i]['strDrinkThumb'];
-      console.log(nameValue);
-      console.log(thumbValue);
+      // console.log(nameValue);
+      // console.log(thumbValue);
+
+      function printDrinkResults () {
+
+        var drinkCard = document.createElement('div');
+        drinkCard.classList.add('drink-card')
+    
+        var drinkBody = document.createElement('div');
+        drinkBody.classList.add('drink-body');
+        drinkCard.append(drinkBody);
+    
+        var drinkBodyContent = document.createElement('p');
+    
+        drinkBodyContent.innerHTML = '<strong>Name: </strong>' + nameValue + '<br/>' + '<img src=' + thumbValue + '/>'
+    
+        drinkBody.append(drinkBodyContent);
+        drinkResultContent.append(drinkCard);
+      }
+      printDrinkResults();
     }
     
   })
   .catch(err => alert("Incorrect drink item!"));
 }
-
-  // drink cards - work in progress
  
   // local storage for saved recipes
   listOfFood = JSON.parse(localStorage.getItem("food"));

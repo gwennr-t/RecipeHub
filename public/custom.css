@@ -39,3 +39,17 @@ aside {
     margin: 5px;
     background-color: rgb(23, 47, 67);
 }
+
+#drink-result-content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.drink-card{
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px;
+    background-color: rgb(23, 47, 67);
+}
