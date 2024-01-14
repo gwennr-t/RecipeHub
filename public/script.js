@@ -94,7 +94,7 @@ var foodItem = function (){
       var glutenFreeValue = data['results'][i]['glutenFree'];
       
       // console.log(titleValue);
-      // console.log(imageValue);
+      console.log(imageValue);
       // console.log(servingsValue);
       // console.log(readyInMinutesValue);
       // console.log(dairyFreeValue);
@@ -111,7 +111,7 @@ var foodItem = function (){
     
         var bodyContent = document.createElement('p');
     
-        bodyContent.innerHTML = '<strong>Name: </strong>' + titleValue + '<br/>' + '<img src=' + imageValue + '/>' + '<br/>' + '<strong>Servings: </strong>' + servingsValue + '<br/>' + '<strong>Ready In: </strong>' + readyInMinutesValue + ' minutes' + '<br/>' +'<strong>Dairy Free: </strong>' + dairyFreeValue + '<br/>' + '<strong>Gluten Free: </strong>' + glutenFreeValue
+        bodyContent.innerHTML = '<strong>Name: </strong>' + titleValue + '<br/>' + '<img src= "' + imageValue + '"/>' + '<br/>' + '<strong>Servings: </strong>' + servingsValue + '<br/>' + '<strong>Ready In: </strong>' + readyInMinutesValue + ' minutes' + '<br/>' +'<strong>Dairy Free: </strong>' + dairyFreeValue + '<br/>' + '<strong>Gluten Free: </strong>' + glutenFreeValue
     
         foodBody.append(bodyContent);
         foodResultContent.append(foodCard);
