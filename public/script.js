@@ -1,16 +1,16 @@
 // user input for search
 var userInput = document.querySelector('#searchInput');
 
-
-
-// var userInput = document.querySelector('.');
-
 var savedRecipes = document.getElementById('savedRecipes');
 var randomMeal = document.getElementById('randomMeal');
 var foodRecipes = document.getElementById('foodRecipes');
 var drinkRecipes = document.getElementById('drinkRecipes');
+var foodSearch = document.getElementById('foodSearch');
+var drinkSearch = document.getElementById('drinkSearch');
 var listOfFood = [];
 var listOfDrinks = [];
+var foodResultContent = document.getElementById('food-result-content');
+var drinkResultContent = document.getElementById('drink-result-content');
 
 // function to save items
 var savedItems = function (){
@@ -89,38 +89,81 @@ function displayRandomDrink() {
 
   // fetch for food
 var foodItem = function (){
-  fetch('https://api.spoonacular.com/recipes/complexSearch?apiKey=e39ea64b56894c6ea15c430bd91edef5&query=' + 'fish' + '&addRecipeInformation=true')
+  fetch('https://api.spoonacular.com/recipes/complexSearch?apiKey=e39ea64b56894c6ea15c430bd91edef5&query=' + userInput.value + '&addRecipeInformation=true')
   .then(response => response.json())
   .then(data => {
     for(var i=0; i<data.results.length; i++){
-      var item = {}
-      item.titleValue = data['results'][i]['title'];
-      item.imageValue = data['results'][i]['image'];
-      item.servingsValue = data['results'][i]['servings'];
-      item.readyInMinutesValue = data['results'][i]['readyInMinutes'];
-      item.dairyFreeValue = data['results'][i]['dairyFree'];
-      item.glutenFreeValue = data['results'][i]['glutenFree'];
-      item.descriptionValue = data['results'][i]['summary'];
-      console.log(item);
+      
+      var titleValue = data['results'][i]['title'];
+      var imageValue = data['results'][i]['image'];
+      var servingsValue = data['results'][i]['servings'];
+      var readyInMinutesValue = data['results'][i]['readyInMinutes'];
+      var dairyFreeValue = data['results'][i]['dairyFree'];
+      var glutenFreeValue = data['results'][i]['glutenFree'];
+      
+      // console.log(titleValue);
+      console.log(imageValue);
+      // console.log(servingsValue);
+      // console.log(readyInMinutesValue);
+      // console.log(dairyFreeValue);
+      // console.log(glutenFreeValue);
+
+      function printResults () {
+
+        var foodCard = document.createElement('div');
+        foodCard.classList.add('food-card')
+    
+        var foodBody = document.createElement('div');
+        foodBody.classList.add('food-body');
+        foodCard.append(foodBody);
+    
+        var bodyContent = document.createElement('p');
+    
+        bodyContent.innerHTML = '<strong>Name: </strong>' + titleValue + '<br/>' + '<img src= "' + imageValue + '"/>' + '<br/>' + '<strong>Servings: </strong>' + servingsValue + '<br/>' + '<strong>Ready In: </strong>' + readyInMinutesValue + ' minutes' + '<br/>' +'<strong>Dairy Free: </strong>' + dairyFreeValue + '<br/>' + '<strong>Gluten Free: </strong>' + glutenFreeValue
+    
+        foodBody.append(bodyContent);
+        foodResultContent.append(foodCard);
+      }
+      printResults();
     }
   })
   .catch(err => alert("Incorrect food item!"));
 }
   // fetch for drinks
 var drinkItem = function (){
-  fetch('www.thecocktaildb.com/api/json/v1/1/search.php?s=' + userInput)
+  fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=' + userInput.value)
   .then(response => response.json())
   .then(data => {
-    
+    for(var i=0; i<data.drinks.length; i ++){
 
-    console.log(data)
+      var nameValue = data['drinks'][i]['strDrink'];
+      var thumbValue = data['drinks'][i]['strDrinkThumb'];
+      // console.log(nameValue);
+      // console.log(thumbValue);
+
+      function printDrinkResults () {
+
+        var drinkCard = document.createElement('div');
+        drinkCard.classList.add('drink-card')
+    
+        var drinkBody = document.createElement('div');
+        drinkBody.classList.add('drink-body');
+        drinkCard.append(drinkBody);
+    
+        var drinkBodyContent = document.createElement('p');
+    
+        drinkBodyContent.innerHTML = '<strong>Name: </strong>' + nameValue + '<br/>' + '<img src=' + thumbValue + '/>'
+    
+        drinkBody.append(drinkBodyContent);
+        drinkResultContent.append(drinkCard);
+      }
+      printDrinkResults();
+    }
+    
   })
   .catch(err => alert("Incorrect drink item!"));
 }
-  // fetch for both 
-
-  // create cards for items
-
+ 
   // local storage for saved recipes
   listOfFood = JSON.parse(localStorage.getItem("food"));
   listOfDrinks = JSON.parse(localStorage.getItem("drinks"));
@@ -131,5 +174,10 @@ var drinkItem = function (){
   randomMeal.addEventListener('click',displayRandomDrink);
   savedRecipes.addEventListener('click',savedItems);
 
-  foodRecipes.addEventListener('click', foodItem);
+
+  // randomMeal.addEventListener('click',randomMealFunction);
+  savedRecipes.addEventListener('click',savedItems);
+
+  foodSearch.addEventListener('click', foodItem);
+
   drinkRecipes.addEventListener('click', drinkItem);

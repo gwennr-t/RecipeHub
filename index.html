@@ -70,8 +70,9 @@
     <section class="pt-24 text-white main-bg h-screen">
         <aside class="h-dvh text-center border-r-4 border-white mt-5 px-5">
             <p class="text-3xl py-10 px-5">What would you like to seatch for:</p>
-            <input class="py-2 pl-2 text-2xl text-black rounded-md w-full" type="text" id="searchInput" placeholder="e.g. Chicken, Pasta...">
-            <button id="foodSearch"class="mt-5 text-white text-xl rounded-full hover:before:bg-redborder-red-500 relative h-[50px] w-40 overflow-hidden border border-black bg-black px-3 shadow-2xl transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:bg-white before:transition-all before:duration-500 hover:text-black hover:shadow-white hover:before:left-0 hover:before:w-full"><span class="relative z-10">Search</span></button>
+
+            <input class="text-2xl text-black rounded-md" type="text" id="searchInput" placeholder="e.g. Chicken, Pasta...">
+            <button id='foodSearch' class="block text-center">Search</button>
         </aside>
         <div id="mainResults" class="  px-5 ">
             <h3 class="font-bold text-2xl my-5 text-shadow ">FOOD!</h3>
@@ -105,6 +106,26 @@
                 </div>
             </div>
         </div>
+
+    
+    <button id="randomMeal" class="mt-40 text-2xl hover:before:bg-redborder-white relative h-[50px] w-64 overflow-hidden border border-white bg-transparent px-3 text-white shadow-2xl transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:bg-white before:transition-all before:duration-500 hover:text-black hover:shadow-white hover:before:left-0 hover:before:w-full"><span class="relative z-10">Random Meal</span></button>
+
+
+<div id="resultCard" class="card">
+    <p id="resultText" class="text-white p-4 mt-2"></p>
+    <p id="resultMeal" class="text-white p-4 mt-2"></p>
+  </div>
+
+  <!-- food and drink card divs - work in progress -->
+    <div id="food-result-content">
+
+    </div>
+
+    <div id="drink-resutl-content">
+
+    </div>
+
+
     </section>
 </main>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
