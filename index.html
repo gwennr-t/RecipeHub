@@ -12,26 +12,25 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body  class="text-center">
+<body  class="text-center ">
     <header class="backdrop-blur-3xl  fixed top-0 w-full shadow-md">
     <nav class="bg-transparent z-40">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
             <a href="#top" class="flex items-center space-x-3 rtl:space-x-reverse">
-            <span class="text-white self-center text-2xl font-semibold whitespace-nowrap dark:text-white">RecipeHub</span>
+            <span class="text-white self-center text-2xl font-semibold whitespace-nowrap dark:text-white nameOfWebsite">RecipeHub</span>
             </a>
             <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse text-2xl">
-                <a href="#mainResults"><button id="foodRecipes" class="text-white rounded-t-lg before:ease relative h-12 w-40 overflow-hidden  before:absolute before:left-0 before:-ml-2 before:h-48 before:w-48 before:origin-top-right before:-translate-x-full before:translate-y-12 before:-rotate-90 before:bg-white before:transition-all before:duration-300 hover:text-black hover:shadow-black hover:before:-rotate-180"><span class="relative z-10"><i class="fa-solid fa-burger"></i> Food</span></button></a>
-                <button id="drinkRecipes" class="text-white rounded-t-lg before:ease relative h-12 w-40 overflow-hidden  before:absolute before:left-0 before:-ml-2 before:h-48 before:w-48 before:origin-top-right before:-translate-x-full before:translate-y-12 before:-rotate-90 before:bg-white before:transition-all before:duration-300 hover:text-black hover:shadow-black hover:before:-rotate-180"><span class="relative z-10"><i class="fa-solid fa-martini-glass-citrus"></i> Drink</span></button>
-                <button id="savedRecipes" class="text-white rounded-t-lg before:ease relative h-12 w-60 overflow-hidden  before:absolute before:left-0 before:-ml-2 before:h-48 before:w-64 before:origin-top-right before:-translate-x-full before:translate-y-12 before:-rotate-90 before:bg-white before:transition-all before:duration-300 hover:text-black hover:shadow-black hover:before:-rotate-180"><span class="relative z-10"><i class="fa-solid fa-bookmark"></i> Saved Recipes</span></button>
+                <a href="#foodSection"><button id="foodRecipes" class="text-white rounded-t-lg before:ease relative h-12 w-40 overflow-hidden  before:absolute before:left-0 before:-ml-2 before:h-48 before:w-48 before:origin-top-right before:-translate-x-full before:translate-y-12 before:-rotate-90 before:bg-white before:transition-all before:duration-300 hover:text-black hover:shadow-black hover:before:-rotate-180"><span class="relative z-10"><i class="fa-solid fa-burger"></i> Food</span></button></a>
+                <a href="#drinkSection"><button id="drinkRecipes" class="text-white rounded-t-lg before:ease relative h-12 w-40 overflow-hidden  before:absolute before:left-0 before:-ml-2 before:h-48 before:w-48 before:origin-top-right before:-translate-x-full before:translate-y-12 before:-rotate-90 before:bg-white before:transition-all before:duration-300 hover:text-black hover:shadow-black hover:before:-rotate-180"><span class="relative z-10"><i class="fa-solid fa-martini-glass-citrus"></i> Drink</span></button></a>
+                <a href="#savedItemsSection"><button id="savedRecipes" class="text-white rounded-t-lg before:ease relative h-12 w-60 overflow-hidden  before:absolute before:left-0 before:-ml-2 before:h-48 before:w-64 before:origin-top-right before:-translate-x-full before:translate-y-12 before:-rotate-90 before:bg-white before:transition-all before:duration-300 hover:text-black hover:shadow-black hover:before:-rotate-180"><span class="relative z-10"><i class="fa-solid fa-bookmark"></i> Saved Recipes</span></button></a>
             </div>
         </div>
     </nav>
     </header>
- <main>
-    <section class="mt-72 mb-72">
+ <main >
+    <section class="mt-72 mb-64 ">
         <h2 id="mainItems" class="text-6xl mb-16 text-white text-shadow">Food & Drink Recipe Ideas</h2>
         <p id="mainItems" class="text-2xl text-white text-shadow">Search for what your palate desires</p>
-    
         <button id="randomMeal" class="btn mt-40 text-2xl hover:before:bg-redborder-white relative h-[50px] w-64 overflow-hidden border border-white bg-transparent px-3 text-white shadow-2xl transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:bg-white before:transition-all before:duration-500 hover:text-black hover:shadow-white hover:before:left-0 hover:before:w-full" onclick="my_modal_3.showModal()"><span class="relative z-10">Random Meal</span></button>
         <dialog id="my_modal_3" class="modal text-white relative backdrop-filter w-3/6 rounded-md shadow dark:bg-gray-700 border border-solid border-white">
             <div class="modal-box m-5">
@@ -39,76 +38,97 @@
                 <button class="btn mt-1 btn-sm btn-circle btn-ghost absolute right-2 top-2  hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white">✕</button>
               </form>
               <div class="flex">
-                <div class="p-4 w-1/2">
-                    <h3 class="font-bold text-2xl my-5 text-shadow ">Random Meal!</h3>
-                  <p id="modalTitle" class="py-4 border-t ">Title</p>
-                  <p id="modalPic" class="py-4  ">Image</p>
-                  <p id="modalTime" class="py-4 text-left">ReadyInMinutes:</p>
-                  <p id="modalServing" class="py-4 text-left">Servings:</p>
-                  <p id="modalDairy" class="py-4 text-left">DairyFree:</p>
-                  <p id="modalGluten" class="py-4 text-left">GlutenFree:</p>
-                  <p id="modalCalories" class="py-4 text-left">Calories:</p>
-                  </div>
-                  <div class="p-4 w-1/2">
-                    <h3 class="font-bold text-2xl my-5 text-shadow ">Random Drink!</h3>
-                    <p id="drinkTitle" class="py-4 border-t ">Title</p>
-                    <p id="drinkImage" class="py-4  ">Image</p>
-                    <p id="drinkIngredients" class="py-4 text-left">Ingredients:</p>
-                    <p id="drinkAlc" class="py-4 text-left">Alcoholic:</p>
-                    <p id="drinkFlavor" class="py-4 text-left">Flavor Profile:</p>
-                    <p id="drinkCalories" class="py-4 text-left">Calories:</p>
-                  </div>
+                    <div id="randomFoodSpace"class="p-4 w-1/2">
+                        <h3 class="font-bold text-2xl my-5 text-shadow ">Random Meal!</h3>
+                        <p id="modalTitle" class="py-2 border-t text-3xl"></p>
+                        <img id="modalPic" class="py-1">
+                        <p id="modalTime" class="py-1 text-left"></p>
+                        <p id="modalServing" class="py-1 text-left"></p>
+                        <p id="modalDairy" class="py-1 text-left"></p>
+                        <p id="modalGluten" class="py-1 text-left"></p>
+                        <p id="modalCalories" class="py-1 text-left"></p>
+                        <a id="modalData"><button data-modal-hide="default-modal" type="button" class="mt-4 text-black mr-3 bg-white hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"><i class="fa-solid fa-check-to-slot"></i> Check the recipe!</button></a>
+                        <button id="saveModalFood"data-modal-hide="default-modal" type="button" class="text-black bg-white hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"><i class="fa-solid fa-bookmark"></i> Save food recipe</button>
+                    </div>
+                    <div class="p-4 w-1/2">
+                        <h3 class="font-bold text-2xl my-5 text-shadow ">Random Drink!</h3>
+                        <p id="drinkTitle" class="py-3 border-t text-3xl"></p>
+                        <img id="drinkImage" class="py-2 max-w-xs m-auto">
+                        <p id="drinkIngredients" class="py-2 text-left"></p>
+                        <p id="drinkAlc" class="py-2 text-left"></p>
+                        <p id="need" class="py-2 text-left"></p>
+                        <p id="instructions" class="py-2 text-left"></p>
+                        <button id="saveModalDrink" data-modal-hide="default-modal" type="button" class="mt-4 text-black bg-white hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"><i class="fa-solid fa-bookmark"></i> Save drink</button>
+                    </div>
               </div>
-                <div class="flex justify-center items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
-                    <button data-modal-hide="default-modal" type="button" class="text-black mr-3 bg-white hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"><i class="fa-solid fa-check-to-slot"></i> Check the recipe!</button>
-                    <button data-modal-hide="default-modal" type="button" class="text-black bg-white hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"><i class="fa-solid fa-bookmark"></i> Save meal</button>
-                </div>
             </div>    
         </dialog>
     </section>
 
-    <section class="pt-24 text-white main-bg h-screen">
-        <aside class="h-dvh text-center border-r-4 border-white mt-5 px-5">
-            <p class="text-3xl py-10 px-5">What would you like to seatch for:</p>
-            <input class="py-2 pl-2 text-2xl text-black rounded-md w-full" type="text" id="searchInput" placeholder="e.g. Chicken, Pasta...">
-            <button id="foodSearch"class="mt-5 text-white text-xl rounded-full hover:before:bg-redborder-red-500 relative h-[50px] w-40 overflow-hidden border border-black bg-black px-3 shadow-2xl transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:bg-white before:transition-all before:duration-500 hover:text-black hover:shadow-white hover:before:left-0 hover:before:w-full"><span class="relative z-10">Search</span></button>
-        </aside>
-        <div id="mainResults" class="  px-5 ">
-            <h3 class="font-bold text-2xl my-5 text-shadow ">FOOD!</h3>
-            <div id="theGrid" class="grid grid-cols-3 gap-3 ">
-                <div class="bg-black">
-                    <p id="titleModal" class="py-4 border-t ">Title</p>
-              <p class="py-4  ">Image</p>
-              <p class="py-4 text-left">ReadyInMinutes:</p>
-              <p class="py-4 text-left">Servings:</p>
-              <p class="py-4 text-left">DairyFree:</p>
-              <p class="py-4 text-left">GlutenFree:</p>
-              <p class="py-4 text-left">Calories:</p>
-                </div>
-                <div class="bg-black">
-                    <p id="titleModal" class="py-4 border-t ">Title</p>
-              <p class="py-4  ">Image</p>
-              <p class="py-4 text-left">ReadyInMinutes:</p>
-              <p class="py-4 text-left">Servings:</p>
-              <p class="py-4 text-left">DairyFree:</p>
-              <p class="py-4 text-left">GlutenFree:</p>
-              <p class="py-4 text-left">Calories:</p>
-                </div>
-                <div class="bg-black">
-                    <p id="titleModal" class="py-4 border-t ">Title</p>
-              <p class="py-4  ">Image</p>
-              <p class="py-4 text-left">ReadyInMinutes:</p>
-              <p class="py-4 text-left">Servings:</p>
-              <p class="py-4 text-left">DairyFree:</p>
-              <p class="py-4 text-left">GlutenFree:</p>
-              <p class="py-4 text-left">Calories:</p>
-                </div>
+    <section id="foodSection" class="main-bg px-10 text-white pb-10">
+        <p class="text-3xl px-5 pt-36 pb-10 text-shadow">What kind/type of food <i class="fa-solid fa-utensils"></i> would you like to search for:</p>
+        <input class="py-2 pl-2 text-2xl text-black rounded-md w-full" type="text" id="searchInputFood" placeholder="e.g. Chicken, Pasta...">
+        <button id="foodSearch"class="mt-5 mb-10 text-white text-xl rounded-full hover:before:bg-redborder-red-500 relative h-[50px] w-40 overflow-hidden border border-black bg-black px-3 shadow-2xl transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:bg-white before:transition-all before:duration-500 hover:text-black hover:shadow-white hover:before:left-0 hover:before:w-full"><span class="relative z-10">Search</span></button>
+        <div id="mainResults" class="main-bg px-5 pb-10">
+            <div id="spaceForFood" class=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4 ">
             </div>
         </div>
     </section>
+
+    <section id="drinkSection" class="main-bg px-10 text-white pb-10">
+        <p class="text-3xl px-5 pt-36 pb-10 text-shadow">What kind/type of drink <i class="fa-solid fa-martini-glass"></i> would you like to search for:</p>
+        <input class="py-2 pl-2 text-2xl text-black rounded-md w-full" type="text" id="searchInputDrink" placeholder="e.g. Margarita, Mojito...">
+        <button id="drinkSearch"class="mt-5 text-white text-xl rounded-full hover:before:bg-redborder-red-500 relative h-[50px] w-40 overflow-hidden border border-black bg-black px-3 shadow-2xl transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:bg-white before:transition-all before:duration-500 hover:text-black hover:shadow-white hover:before:left-0 hover:before:w-full"><span class="relative z-10">Search</span></button>
+        <div id="spaceForDrinks" class="m-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4">
+        </div>
+    </section>
+
+    <section id="savedItemsSection" class="main-bg text-white pb-10">
+        <p class="text-3xl pt-10 px-5 pb-10 text-shadow">These are all your saved recipes:</p>
+        <div id="spaceForSavedItems" class="m-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+            <div class="bg-black ">
+                <p id="titleModal" class="py-4 border-t w-full">Title</p>
+                <p class="py-4  ">Image</p>
+                <p class="py-4 text-left">ReadyInMinutes:</p>
+                <p class="py-4 text-left">Servings:</p>
+                <p class="py-4 text-left">DairyFree:</p>
+                <p class="py-4 text-left">GlutenFree:</p>
+                <p class="py-4 text-left">Calories:</p>
+            </div>
+            <div class="bg-black ">
+                <p id="titleModal" class="py-4 border-t ">Title</p>
+                <p class="py-4  ">Image</p>
+                <p class="py-4 text-left">ReadyInMinutes:</p>
+                <p class="py-4 text-left">Servings:</p>
+                <p class="py-4 text-left">DairyFree:</p>
+                <p class="py-4 text-left">GlutenFree:</p>
+                <p class="py-4 text-left">Calories:</p>
+            </div>
+            <div class="bg-black ">
+                <p id="titleModal" class="py-4 border-t ">Title</p>
+                <p class="py-4  ">Image</p>
+                <p class="py-4 text-left">ReadyInMinutes:</p>
+                <p class="py-4 text-left">Servings:</p>
+                <p class="py-4 text-left">DairyFree:</p>
+                <p class="py-4 text-left">GlutenFree:</p>
+                <p class="py-4 text-left">Calories:</p>
+            </div>
+            <div class="bg-black ">
+                <p id="titleModal" class="py-4 border-t w-full">Title</p>
+                <p class="py-4  ">Image</p>
+                <p class="py-4 text-left">ReadyInMinutes:</p>
+                <p class="py-4 text-left">Servings:</p>
+                <p class="py-4 text-left">DairyFree:</p>
+                <p class="py-4 text-left">GlutenFree:</p>
+                <p class="py-4 text-left">Calories:</p>
+            </div>
+        </div>
+    </section>
+    <footer id="footer"class="main-bg text-white pb-10">
+        <h1 class="text-2xl text-shadow">Made with love <i class="fa-solid fa-heart"></i></h1>
+    </footer>
 </main>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="./public/script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script type="module" src="./public/script.js"></script>
 </body>
 </html>
-

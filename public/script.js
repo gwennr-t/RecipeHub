@@ -1,135 +1,338 @@
+import drinksData from "./drinksjson.json" assert { type: 'json' };
+
+
 // user input for search
-var userInput = document.querySelector('#searchInput');
+var userInputFood = document.querySelector('#searchInputFood');
+var userInputDrink = document.querySelector('#searchInputDrink');
+var randomMeal = $('#randomMeal');
+var foodBtn = $('#foodRecipes');
+var drinkBtn = $('#drinkRecipes');
+var savedRecipes = $('#savedRecipes');
+var foodSearchBtn = $('#foodSearch');
+var drinkSearchBtn = $('#drinkSearch');
 
-
-
-// var userInput = document.querySelector('.');
-
-var savedRecipes = document.getElementById('savedRecipes');
-var randomMeal = document.getElementById('randomMeal');
-var foodRecipes = document.getElementById('foodRecipes');
-var drinkRecipes = document.getElementById('drinkRecipes');
 var listOfFood = [];
 var listOfDrinks = [];
 
+const foodContainer = document.querySelector('#spaceForFood');
+const drinksContainer = document.createElement("div");
+drinksContainer.setAttribute('id', 'spaceForDrinks');
+drinksContainer.classList.add('m-10', 'grid', 'grid-cols-1', 'sm:grid-cols-2', 'md:grid-cols-2', 'lg:grid-cols-3', 'xl:grid-cols-4', 'gap-4', 'text-white');
+
+$('#foodSection').addClass("hidden");
+$('#drinkSection').addClass("hidden");
+$('#savedItemsSection').addClass("hidden");
+$('#footer').addClass("hidden");
+
 // function to save items
-var savedItems = function (){
+// var savingTheItem = function (){
+//   window.localStorage.setItem("food", JSON.stringify(listOfFood));
+// }
 
-}
-
-var alcDrinks = [
-  { name: "Margarita", ingredients: ["Tequila", "Triple sec", "Lime juice", "Salt"], calories: 200, alcoholic: true, flavorProfile: "Citrus" },
-  { name: "Martini", ingredients: ["Gin", "Dry vermouth", "Lemon twist"], calories: 180, alcoholic: true, flavorProfile: "Herbaceous" },
-  { name: "Piña Colada", ingredients: ["Rum", "Coconut cream", "Pineapple juice"], calories: 350, alcoholic: true, flavorProfile: "Tropical" },
-  { name: "Mojito", ingredients: ["White rum", "Lime", "Mint", "Simple syrup", "Soda water"], calories: 160, alcoholic: true, flavorProfile: "Refreshing" },
-  { name: "Shirley Temple", ingredients: ["Ginger ale", "Grenadine", "Maraschino cherry"], calories: 80, alcoholic: false, flavorProfile: "Sweet" },
-  { name: "Virgin Mojito", ingredients: ["Lime", "Mint", "Simple syrup", "Soda water"], calories: 100, alcoholic: false, flavorProfile: "Refreshing" },
-  { name: "Virgin Piña Colada", ingredients: ["Coconut cream", "Pineapple juice", "Crushed ice"], calories: 250, alcoholic: false, flavorProfile: "Tropical" },
-  { name: "Cosmopolitan Mocktail", ingredients: ["Cranberry juice", "Lime juice", "Orange zest", "Soda water"], calories: 120, alcoholic: false, flavorProfile: "Citrusy" },
-  { name: "Old Fashioned", ingredients: ["Bourbon", "Simple syrup", "Angostura bitters", "Orange twist"], calories: 180, alcoholic: true, flavorProfile: "Classic" },
-  { name: "Mai Tai", ingredients: ["White rum", "Dark rum", "Orange liqueur", "Lime juice", "Orgeat syrup"], calories: 250, alcoholic: true, flavorProfile: "Exotic" },
-  { name: "Virgin Mary", ingredients: ["Tomato juice", "Lemon juice", "Worcestershire sauce", "Tabasco", "Celery salt"], calories: 60, alcoholic: false, flavorProfile: "Spicy" },
-  { name: "Gin and Tonic", ingredients: ["Gin", "Tonic water", "Lime wedge"], calories: 120, alcoholic: true, flavorProfile: "Crisp" },
-  { name: "Lemonade", ingredients: ["Lemon juice", "Simple syrup", "Water"], calories: 100, alcoholic: false, flavorProfile: "Tangy" },
-  { name: "Espresso Martini", ingredients: ["Vodka", "Coffee liqueur", "Espresso"], calories: 220, alcoholic: true, flavorProfile: "Bold" }
-];
-
-const meals = [
-    { name: "Spaghetti Bolognese", ingredients: ["Ground beef", "Tomato sauce", "Onion", "Garlic", "Spaghetti", "Olive oil"], calories: 600, cookingTime: "30 minutes", dairyFree: false, glutenFree: false, servings: 4 },
-    { name: "Chicken Alfredo", ingredients: ["Chicken breast", "Alfredo sauce", "Fettuccine pasta", "Parmesan cheese"], calories: 800, cookingTime: "25 minutes", dairyFree: false, glutenFree: false, servings: 2 },
-    { name: "Vegetarian Stir Fry", ingredients: ["Tofu", "Broccoli", "Carrots", "Bell peppers", "Soy sauce", "Ginger", "Garlic"], calories: 450, cookingTime: "20 minutes", dairyFree: true, glutenFree: true, servings: 3 },
-    { name: "Salmon with Lemon-Dill Sauce", ingredients: ["Salmon fillet", "Lemon", "Dill", "Olive oil", "Salt", "Pepper"], calories: 550, cookingTime: "15 minutes", dairyFree: true, glutenFree: true, servings: 2 },
-    { name: "Shrimp and Avocado Salad", ingredients: ["Shrimp", "Avocado", "Lettuce", "Cherry tomatoes", "Lemon", "Olive oil"], calories: 400, cookingTime: "10 minutes", dairyFree: true, glutenFree: true, servings: 2 },
-    { name: "Beef Tacos", ingredients: ["Ground beef", "Taco shells", "Lettuce", "Tomato", "Cheese", "Salsa"], calories: 480, cookingTime: "20 minutes", dairyFree: false, glutenFree: false, servings: 3 },
-    { name: "Vegetable Curry", ingredients: ["Mixed vegetables", "Coconut milk", "Curry paste", "Rice"], calories: 600, cookingTime: "25 minutes", dairyFree: true, glutenFree: false, servings: 4 },
-    { name: "Grilled Chicken Caesar Salad", ingredients: ["Chicken breast", "Romaine lettuce", "Croutons", "Parmesan cheese", "Caesar dressing"], calories: 350, cookingTime: "15 minutes", dairyFree: false, glutenFree: true, servings: 2 },
-    { name: "Pasta Primavera", ingredients: ["Pasta", "Mixed vegetables", "Olive oil", "Garlic", "Parmesan cheese"], calories: 550, cookingTime: "20 minutes", dairyFree: true, glutenFree: false, servings: 4 },
-    { name: "Teriyaki Salmon", ingredients: ["Salmon fillet", "Teriyaki sauce", "Broccoli", "Rice"], calories: 700, cookingTime: "18 minutes", dairyFree: true, glutenFree: true, servings: 2 },
-    { name: "Caprese Salad", ingredients: ["Tomato", "Mozzarella cheese", "Basil", "Balsamic glaze"], calories: 300, cookingTime: "10 minutes", dairyFree: true, glutenFree: true, servings: 2 },
-    { name: "Chicken Parmesan", ingredients: ["Chicken breast", "Tomato sauce", "Mozzarella cheese", "Parmesan cheese", "Pasta"], calories: 800, cookingTime: "30 minutes", dairyFree: false, glutenFree: false, servings: 3 },
-    { name: "Spinach and Feta Stuffed Chicken", ingredients: ["Chicken breast", "Spinach", "Feta cheese", "Garlic", "Olive oil"], calories: 600, cookingTime: "25 minutes", dairyFree: false, glutenFree: true, servings: 2 },
-    { name: "Quinoa Salad with Chickpeas", ingredients: ["Quinoa", "Chickpeas", "Cucumber", "Cherry tomatoes", "Feta cheese", "Olive oil"], calories: 450, cookingTime: "15 minutes", dairyFree: true, glutenFree: true, servings: 3 }
-];
-
-// function to get a random meal
-function getRandomDrink(drinksArray) {
-  const randomIndex = Math.floor(Math.random() * drinksArray.length);
-  return drinksArray[randomIndex];
-}
-
-function displayRandomDrink() {
-  const randomDrink = getRandomDrink(alcDrinks);
-  const randomFood = getRandomDrink(meals);
-
-  const modalTitle = document.getElementById('modalTitle');
-  const modalCalories = document.getElementById('modalCalories');
-  const modalServing = document.getElementById('modalServing');
-  const modalDairy = document.getElementById('modalDairy');
-  const modalGluten = document.getElementById('modalGluten');
-  const modalTime = document.getElementById('modalTime');
-  const drinkTitle = document.getElementById('drinkTitle');
-  const drinkIngredients = document.getElementById('drinkIngredients');
-  const drinkAlc = document.getElementById('drinkAlc');
-  const drinkFlavor = document.getElementById('drinkFlavor');
-  const drinkCalories = document.getElementById('drinkCalories');
-  modalTitle.innerHTML = `${randomFood.name}`
-  modalCalories.innerHTML = `Calories: ${randomFood.calories}`
-  modalServing.innerHTML = `Servings: ${randomFood.servings}`
-  modalTime.innerHTML = `Cooking time: ${randomFood.cookingTime}`
-  modalDairy.innerHTML = `Dairy-free: ${randomFood.dairyFree}`
-  modalGluten.innerHTML = `Gluten-free: ${randomFood.glutenFree}`
-  drinkTitle.innerHTML = `${randomDrink.name}`
-  drinkIngredients.innerHTML = `Ingredients: ${randomDrink.ingredients.join(', ')}`
-  drinkAlc.innerHTML = `Alcoholic: ${randomDrink.alcoholic}`
-  drinkFlavor.innerHTML = `Flavor profile: ${randomDrink.flavorProfile}`
-  drinkCalories.innerHTML = `Calories: ${randomDrink.calories}`
-}
-
-  // fetch function
-
-  // fetch for food
-var foodItem = function (){
-  fetch('https://api.spoonacular.com/recipes/complexSearch?apiKey=e39ea64b56894c6ea15c430bd91edef5&query=' + 'fish' + '&addRecipeInformation=true')
+// this functions display a random meal and drink in the modal
+function displayRandom() {
+  $('#randomFoodSpace').innerHTML = "";
+  const drinksArr = drinksData.drinks;
+  let idx = 0;
+  idx = Math.floor(Math.random() * drinksArr.length)
+  console.log(drinksArr[idx])
+  document.getElementById('drinkTitle').innerHTML = drinksArr[idx].strDrink;
+  document.getElementById('drinkImage').src = drinksArr[idx].strDrinkThumb;
+  document.getElementById('drinkAlc').innerHTML = "Type: "+drinksArr[idx].strAlcoholic;
+  document.getElementById('instructions').innerHTML = "Instructions: "+drinksArr[idx].strInstructions;
+  document.getElementById('need').innerHTML = "One ingredient is: "+drinksArr[idx].strIngredient1;
+  fetch('https://api.spoonacular.com/recipes/random?number=6&apiKey=c37a2563cdea4ca5ba1ce4b60bd9d8a7')
   .then(response => response.json())
   .then(data => {
-    for(var i=0; i<data.results.length; i++){
-      var item = {}
-      item.titleValue = data['results'][i]['title'];
-      item.imageValue = data['results'][i]['image'];
-      item.servingsValue = data['results'][i]['servings'];
-      item.readyInMinutesValue = data['results'][i]['readyInMinutes'];
-      item.dairyFreeValue = data['results'][i]['dairyFree'];
-      item.glutenFreeValue = data['results'][i]['glutenFree'];
-      item.descriptionValue = data['results'][i]['summary'];
-      console.log(item);
+  document.getElementById('modalTitle').innerHTML = data['recipes'][0]['title'];
+  document.getElementById('modalPic').src = data['recipes'][0]['image'];
+  document.getElementById('modalTime').innerHTML = "ReadyInMinutes: " + data['recipes'][0]['readyInMinutes'];
+  document.getElementById('modalServing').innerHTML = "Servings: "+data['recipes'][0]['servings'];
+  document.getElementById('modalDairy').innerHTML = "DairyFree: "+data['recipes'][0]['dairyFree'];
+  document.getElementById('modalGluten').innerHTML = "GlutenFree: "+data['recipes'][0]['glutenFree'];
+  document.getElementById('modalData').href=data['recipes'][0]['sourceUrl'] ;
+  })
+}
+
+// fetch 6 random food items
+var randomFoodItems = function (){
+  foodContainer.innerHTML = "";
+  $('#foodSection').removeClass("hidden");
+  $('#footer').removeClass("hidden");
+  $('#drinkSection').addClass("hidden");
+  $('#savedItemsSection').addClass("hidden");
+  fetch('https://api.spoonacular.com/recipes/random?number=6&apiKey=c37a2563cdea4ca5ba1ce4b60bd9d8a7')
+  .then(response => response.json())
+  .then(data => {
+    console.log(data);
+    for(var i=0;i<6;i++){
+      const divCard = document.createElement('div');
+      const titleFood = document.createElement("p");
+      const image = document.createElement("img");
+      const ready = document.createElement("p");
+      const servings = document.createElement("p");
+      const dairy = document.createElement("p");
+      const gluten = document.createElement("p");
+      const buttonContainer = document.createElement("div");
+      const linkRecipe = document.createElement("a");
+      const buttonRecipe = document.createElement("button");
+      const buttonSave = document.createElement("button");
+
+      titleFood.setAttribute('id', `titleFood${i}`);
+      image.setAttribute('id', `image${i}`);
+      ready.setAttribute('id', `ready${i}`);
+      servings.setAttribute('id', `servings${i}`);
+      dairy.setAttribute('id', `need${i}`);
+      gluten.setAttribute('id', `need${i}`);
+      buttonContainer.setAttribute('id', `need${i}`);
+      buttonRecipe.setAttribute('type', "button");
+      buttonSave.setAttribute('type', "button");
+
+      divCard.classList.add("bg-black");
+      titleFood.classList.add('border-t', 'w-full', 'text-3xl', 'py-4');
+      image.classList.add('px-5', 'h-auto', 'max-w-sm', 'm-auto');
+      ready.classList.add('text-left', 'm-10');
+      servings.classList.add('text-left', 'm-10');
+      dairy.classList.add('text-left', 'm-10');
+      gluten.classList.add('text-left', 'm-10');
+      buttonContainer.classList.add('flex', 'justify-center', 'items-center', 'p-4', 'md:p-5');
+      buttonRecipe.classList.add("text-black", "mr-3", "bg-white","hover:bg-blue-800","focus:ring-4","focus:outline-none","focus:ring-blue-300","font-medium","rounded-lg","text-sm","px-5","py-2.5","text-center","dark:hover:bg-blue-700", "dark:focus:ring-blue-800");
+      buttonSave.classList.add("text-black", "bg-white","hover:bg-blue-800","focus:ring-4","focus:outline-none","focus:ring-blue-300","font-medium","rounded-lg","text-sm","px-5","py-2.5","text-center","dark:hover:bg-blue-700", "dark:focus:ring-blue-800");
+
+      // document.getElementById('checkMore'+i).attr = ("href", data['recipes'][i]['sourceUrl']);
+      titleFood.innerHTML = data['recipes'][i]['title'];
+      image.src = data['recipes'][i]['image'];
+      ready.innerHTML = "ReadyInMinutes: " + data['recipes'][i]['readyInMinutes'];
+      servings.innerHTML = "Servings: "+data['recipes'][i]['servings'];
+      dairy.innerHTML = "DairyFree: "+data['recipes'][i]['dairyFree'];
+      gluten.innerHTML = "GlutenFree: "+data['recipes'][i]['glutenFree'];
+      linkRecipe.href=data['recipes'][i]['sourceUrl'];
+      buttonRecipe.innerHTML='<i class="fa-solid fa-check-to-slot"></i> Check Recipe';
+      buttonSave.innerHTML='<i class="fa-solid fa-bookmark"></i> Save Meal';
+
+      divCard.appendChild(titleFood);
+      divCard.appendChild(image);
+      divCard.appendChild(ready);
+      divCard.appendChild(servings);
+      divCard.appendChild(dairy);
+      divCard.appendChild(gluten);
+      
+      linkRecipe.appendChild(buttonRecipe);
+      buttonContainer.appendChild(linkRecipe);
+      buttonContainer.appendChild(buttonSave);
+      divCard.appendChild(buttonContainer);
+
+      foodContainer.appendChild(divCard);  
+    }
+    }
+  )
+}
+
+// fetch the food items by the user input
+var searchFood = function (){
+  foodContainer.innerHTML = "";
+  fetch('https://api.spoonacular.com/recipes/complexSearch?apiKey=c37a2563cdea4ca5ba1ce4b60bd9d8a7git ad&query=' + userInputFood.value + '&addRecipeInformation=true')
+  .then(response => response.json())
+  .then(data => {
+    for(var i=0; i<16; i++){
+      const divCard = document.createElement('div');
+      const titleFood = document.createElement("p");
+      const image = document.createElement("img");
+      const ready = document.createElement("p");
+      const servings = document.createElement("p");
+      const dairy = document.createElement("p");
+      const gluten = document.createElement("p");
+      const buttonContainer = document.createElement("div");
+      const linkRecipe = document.createElement("a");
+      const buttonRecipe = document.createElement("button");
+      const buttonSave = document.createElement("button");
+
+      titleFood.setAttribute('id', `titleFood${i}`);
+      image.setAttribute('id', `image${i}`);
+      ready.setAttribute('id', `ready${i}`);
+      servings.setAttribute('id', `servings${i}`);
+      dairy.setAttribute('id', `need${i}`);
+      gluten.setAttribute('id', `need${i}`);
+      buttonContainer.setAttribute('id', `need${i}`);
+      buttonRecipe.setAttribute('type', "button");
+      buttonSave.setAttribute('type', "button");
+
+      divCard.classList.add("bg-black");
+      titleFood.classList.add('border-t', 'w-full', 'text-3xl', "py-4");
+      image.classList.add('px-5', 'h-auto', 'max-w-sm', 'm-auto');
+      ready.classList.add('text-left', 'm-10');
+      servings.classList.add('text-left', 'm-10');
+      dairy.classList.add('text-left', 'm-10');
+      gluten.classList.add('text-left', 'm-10');
+      buttonContainer.classList.add('flex', 'justify-center', 'items-center', 'p-4', 'md:p-5');
+      buttonRecipe.classList.add("text-black", "mr-3", "bg-white","hover:bg-blue-800","focus:ring-4","focus:outline-none","focus:ring-blue-300","font-medium","rounded-lg","text-sm","px-5","py-2.5","text-center","dark:hover:bg-blue-700", "dark:focus:ring-blue-800");
+      buttonSave.classList.add("text-black", "bg-white","hover:bg-blue-800","focus:ring-4","focus:outline-none","focus:ring-blue-300","font-medium","rounded-lg","text-sm","px-5","py-2.5","text-center","dark:hover:bg-blue-700", "dark:focus:ring-blue-800");
+
+
+      titleFood.innerHTML = data['results'][i]['title'];
+      image.src = data['results'][i]['image'];
+      ready.innerHTML = "ReadyInMinutes: " + data['results'][i]['readyInMinutes'];
+      servings.innerHTML = "Servings: "+data['results'][i]['servings'];
+      dairy.innerHTML = "DairyFree: "+data['results'][i]['dairyFree'];
+      gluten.innerHTML = "GlutenFree: "+data['results'][i]['glutenFree'];
+      linkRecipe.href=data['results'][i]['sourceUrl'];
+      buttonRecipe.innerHTML='<i class="fa-solid fa-check-to-slot"></i> Check Recipe';
+      buttonSave.innerHTML='<i class="fa-solid fa-bookmark"></i> Save Meal';
+
+      divCard.appendChild(titleFood);
+      divCard.appendChild(image);
+      divCard.appendChild(ready);
+      divCard.appendChild(servings);
+      divCard.appendChild(dairy);
+      divCard.appendChild(gluten);
+      
+      linkRecipe.appendChild(buttonRecipe);
+      buttonContainer.appendChild(linkRecipe);
+      buttonContainer.appendChild(buttonSave);
+      divCard.appendChild(buttonContainer);
+
+      foodContainer.appendChild(divCard);  
     }
   })
-  .catch(err => alert("Incorrect food item!"));
 }
-  // fetch for drinks
-var drinkItem = function (){
-  fetch('www.thecocktaildb.com/api/json/v1/1/search.php?s=' + userInput)
+
+// fetch the 6 random drinks
+var randomDrinkItems = function (){
+  drinksContainer.innerHTML = "";
+  $('#drinkSection').removeClass("hidden");
+  $('#footer').removeClass("hidden");
+  $('#foodSection').addClass("hidden");
+  $('#savedItemsSection').addClass("hidden");
+  const drinksArr = drinksData.drinks;
+  let drinksArrCopy = [...drinksArr];
+  
+  for(let i = 0; i < 8; i++){
+  let idx = Math.floor(Math.random() * drinksArrCopy.length)
+  const divCard = document.createElement('div');
+  
+        const titleDrink = document.createElement("p");
+        const imageDrink = document.createElement("img");
+        const isAlcoholic = document.createElement("p");
+        const instructions = document.createElement("p");
+        const need = document.createElement("p");
+        const buttonSave = document.createElement("button");
+  
+        titleDrink.setAttribute('id', `titleDrink${i}`);
+        imageDrink.setAttribute('id', `imageDrink${i}`);
+        isAlcoholic.setAttribute('id', `isAlcoholic${i}`);
+        instructions.setAttribute('id', `instructions${i}`);
+        need.setAttribute('id', `need${i}`);
+        buttonSave.setAttribute('type', "button");
+  
+        divCard.classList.add("bg-black");
+        titleDrink.classList.add('py-4', 'border-t', 'w-full', 'text-3xl');
+        imageDrink.classList.add('py-4', 'px-5', 'h-auto', 'max-w-sm', 'm-auto');
+        isAlcoholic.classList.add('py-4', 'text-left', 'm-10');
+        instructions.classList.add('py-4', 'text-left', 'm-10');
+        need.classList.add('flex', 'justify-center', 'items-center', 'p-4', 'md:p-5');
+        buttonSave.classList.add("text-black", "mb-5", "bg-white","hover:bg-blue-800","focus:ring-4","focus:outline-none","focus:ring-blue-300","font-medium","rounded-lg","text-sm","px-5","py-2.5","text-center","dark:hover:bg-blue-700", "dark:focus:ring-blue-800");
+
+
+        titleDrink.innerHTML = drinksArrCopy[idx].strDrink;
+        imageDrink.src = drinksArrCopy[idx].strDrinkThumb;
+        isAlcoholic.innerHTML = "Type: "+drinksArrCopy[idx].strAlcoholic;
+        instructions.innerHTML = "Instructions: "+drinksArrCopy[idx].strInstructions;
+        need.innerHTML = "One ingredient is: "+drinksArrCopy[idx].strIngredient1;
+        buttonSave.innerHTML='<i class="fa-solid fa-bookmark"></i> Save Meal';
+        drinksArrCopy.splice(idx, 1);
+        
+        divCard.appendChild(titleDrink);
+        divCard.appendChild(imageDrink);
+        divCard.appendChild(isAlcoholic);
+        divCard.appendChild(instructions);
+        divCard.appendChild(need);
+        divCard.appendChild(buttonSave);
+        drinksContainer.appendChild(divCard);
+
+        // buttonSave.on('click',savingTheItem);
+        
+        document.getElementById('drinkSection').appendChild(drinksContainer);
+}
+}
+
+//fetch the drinks by the user input
+var searchDrink = function (){
+  fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s='+ userInputDrink.value)
   .then(response => response.json())
   .then(data => {
-    
+    drinksContainer.innerHTML = "";
+    for(var i=0; i<6; i++){
+      // document.getElementById('titleDrink'+i).innerHTML = data['drinks'][i]['strDrink'];
+      // document.getElementById('imageDrink'+i).src = data['drinks'][i]['strDrinkThumb'];
+      // document.getElementById('isAlcoholic'+i).innerHTML = "Type: "+data['drinks'][i]['strAlcoholic'];
+      // document.getElementById('instructions'+i).innerHTML = "Instructions: "+data['drinks'][i]['strInstructions'];
+      // document.getElementById('need'+i).innerHTML = "One ingredient is: "+data['drinks'][i]['strIngredient1'];
+      const divCard = document.createElement('div');
+  
+        const titleDrink = document.createElement("p");
+        const imageDrink = document.createElement("img");
+        const isAlcoholic = document.createElement("p");
+        const instructions = document.createElement("p");
+        const need = document.createElement("p");
+        const buttonSave = document.createElement("button");
+  
+        titleDrink.setAttribute('id', `titleDrink${i}`);
+        imageDrink.setAttribute('id', `imageDrink${i}`);
+        isAlcoholic.setAttribute('id', `isAlcoholic${i}`);
+        instructions.setAttribute('id', `instructions${i}`);
+        need.setAttribute('id', `need${i}`);
+        buttonSave.setAttribute('type', "button");
+  
+        divCard.classList.add("bg-black");
+        titleDrink.classList.add('py-4', 'border-t', 'w-full', 'text-3xl');
+        imageDrink.classList.add('py-4', 'px-5', 'h-auto', 'max-w-sm', 'm-auto');
+        isAlcoholic.classList.add('py-4', 'text-left', 'm-10');
+        instructions.classList.add('py-4', 'text-left', 'm-10');
+        need.classList.add('flex', 'justify-center', 'items-center', 'p-4', 'md:p-5');
+        buttonSave.classList.add("text-black", "mb-5", "bg-white","hover:bg-blue-800","focus:ring-4","focus:outline-none","focus:ring-blue-300","font-medium","rounded-lg","text-sm","px-5","py-2.5","text-center","dark:hover:bg-blue-700", "dark:focus:ring-blue-800");
 
-    console.log(data)
+
+        titleDrink.innerHTML = data['drinks'][i]['strDrink'];
+        imageDrink.src = data['drinks'][i]['strDrinkThumb'];
+        isAlcoholic.innerHTML = "Type: "+data['drinks'][i]['strAlcoholic'];
+        instructions.innerHTML = "Instructions: "+data['drinks'][i]['strInstructions'];
+        need.innerHTML = "One ingredient is: "+data['drinks'][i]['strIngredient1'];
+        buttonSave.innerHTML='<i class="fa-solid fa-bookmark"></i> Save Meal';
+        
+        divCard.appendChild(titleDrink);
+        divCard.appendChild(imageDrink);
+        divCard.appendChild(isAlcoholic);
+        divCard.appendChild(instructions);
+        divCard.appendChild(need);
+        divCard.appendChild(buttonSave);
+        drinksContainer.appendChild(divCard);
+        document.getElementById('drinkSection').appendChild(drinksContainer);
+    }
   })
-  .catch(err => alert("Incorrect drink item!"));
 }
-  // fetch for both 
 
-  // create cards for items
-
+  // function to check the saved items
+  var savedItems = function (){
+    $('#savedItemsSection').removeClass("hidden");
+    $('#foodSection').addClass("hidden");
+    $('#drinkSection').addClass("hidden");
+    $('#footer').removeClass("hidden");
+  }
+  
   // local storage for saved recipes
   listOfFood = JSON.parse(localStorage.getItem("food"));
   listOfDrinks = JSON.parse(localStorage.getItem("drinks"));
   window.localStorage.setItem("food", JSON.stringify(listOfFood));
   window.localStorage.setItem("drinks", JSON.stringify(listOfDrinks));
 
+  //getting a random food and drink in the modal
+  randomMeal.on('click',displayRandom);
+  
+  //eventlisteners for all the buttons
+  foodBtn.on('click', randomFoodItems);
+  foodSearchBtn.on('click',searchFood);
+  drinkBtn.on('click', randomDrinkItems);
+  drinkSearchBtn.on('click',searchDrink);
+  savedRecipes.on('click', savedItems);
 
-  randomMeal.addEventListener('click',displayRandomDrink);
-  savedRecipes.addEventListener('click',savedItems);
-
-  foodRecipes.addEventListener('click', foodItem);
-  drinkRecipes.addEventListener('click', drinkItem);
+  
