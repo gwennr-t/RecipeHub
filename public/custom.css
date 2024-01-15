@@ -14,7 +14,9 @@ body{
     border: 1px solid white;
     backdrop-filter: blur(20px);
 }
-
+header{
+    z-index: 99;
+}
 aside {
     width:20%;
     height:100%;
@@ -25,6 +27,7 @@ aside {
     width:80%;
     float:right;
 }
+
 
 #food-result-content{
     display: flex;
@@ -52,4 +55,8 @@ aside {
     padding: 10px;
     margin: 5px;
     background-color: rgb(23, 47, 67);
+
+.main-bg{
+    background-color: #191919;
+
 }
