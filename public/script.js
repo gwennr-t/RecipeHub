@@ -13,6 +13,8 @@ var drinkSearchBtn = $('#drinkSearch');
 
 var listOfFood = [];
 var listOfDrinks = [];
+var foodResultContent = document.getElementById('food-result-content');
+var drinkResultContent = document.getElementById('drink-result-content');
 
 const foodContainer = document.querySelector('#spaceForFood');
 const drinksContainer = document.createElement("div");
@@ -334,5 +336,3 @@ var searchDrink = function (){
   drinkBtn.on('click', randomDrinkItems);
   drinkSearchBtn.on('click',searchDrink);
   savedRecipes.on('click', savedItems);
-
-  
