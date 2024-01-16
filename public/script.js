@@ -131,7 +131,7 @@ function displayRandom() {
   });
 
   // This displays the random food
-  fetch('https://api.spoonacular.com/recipes/random?number=6&apiKey=c37a2563cdea4ca5ba1ce4b60bd9d8a7')
+  fetch('https://api.spoonacular.com/recipes/random?number=6&apiKey=f905894fab10422990129414c04a2913')
   .then(response => response.json())
   .then(data => {
     const modalTitle = document.createElement("p");
@@ -200,7 +200,7 @@ var randomFoodItems = function (){
   drinkSection.setAttribute("hidden","hidden");
   foodSection.removeAttribute("hidden","hidden");
   footer.removeAttribute("hidden","hidden");
-  fetch('https://api.spoonacular.com/recipes/random?number=6&apiKey=c37a2563cdea4ca5ba1ce4b60bd9d8a7')
+  fetch('https://api.spoonacular.com/recipes/random?number=6&apiKey=f905894fab10422990129414c04a2913')
   .then(response => response.json())
   .then(data => {
     for(var i=0;i<6;i++){
@@ -226,16 +226,16 @@ var randomFoodItems = function (){
       buttonRecipe.setAttribute('type', "button");
       buttonSave.setAttribute('type', "button");
 
-      divCard.classList.add("bg-black");
-      titleFood.classList.add('border-t', 'w-full', 'text-3xl', 'min-h-7', 'py-4', 'px-4');
-      image.classList.add('px-5', 'h-auto', 'object-contain', 'max-w-sm', 'm-auto');
-      ready.classList.add('text-left', 'm-5');
-      servings.classList.add('text-left', 'm-5');
-      dairy.classList.add('text-left', 'm-5');
-      gluten.classList.add('text-left', 'm-5');
+      divCard.classList.add("bg-black", "flex", "flex-col", "gap-6", "p-4", "rounded-2xl");
+      titleFood.classList.add('text-3xl');
+      image.classList.add("rounded-2xl");
+      ready.classList.add('text-left');
+      servings.classList.add('text-left');
+      dairy.classList.add('text-left');
+      gluten.classList.add('text-left');
       buttonContainer.classList.add('flex', 'justify-center', 'items-center', 'p-4', 'md:p-5');
-      buttonRecipe.classList.add("mb-4","text-black", "mr-3", "bg-white","hover:bg-blue-800","focus:ring-4","focus:outline-none","focus:ring-blue-300","font-medium","rounded-lg","text-sm","px-5","py-2.5","text-center","dark:hover:bg-blue-700", "dark:focus:ring-blue-800");
-      buttonSave.classList.add("mb-4","text-black", "bg-white","hover:bg-blue-800","focus:ring-4","focus:outline-none","focus:ring-blue-300","font-medium","rounded-lg","text-sm","px-5","py-2.5","text-center","dark:hover:bg-blue-700", "dark:focus:ring-blue-800");
+      buttonRecipe.classList.add("last-of-type:mt-auto", "text-black", "mb-5","mr-5", "bg-white","hover:bg-blue-800","focus:ring-4","focus:outline-none","focus:ring-blue-300","font-medium","rounded-lg","text-sm","px-5","py-2.5","text-center","dark:hover:bg-blue-700", "dark:focus:ring-blue-800");
+      buttonSave.classList.add("last-of-type:mt-auto", "text-black", "mb-5", "bg-white","hover:bg-blue-800","focus:ring-4","focus:outline-none","focus:ring-blue-300","font-medium","rounded-lg","text-sm","px-5","py-2.5","text-center","dark:hover:bg-blue-700", "dark:focus:ring-blue-800");
 
       // document.getElementById('checkMore'+i).attr = ("href", data['recipes'][i]['sourceUrl']);
       titleFood.innerHTML = data['recipes'][i]['title'];
@@ -269,7 +269,7 @@ var randomFoodItems = function (){
 // Fetch the food items by the user input
 var searchFood = function (){
   foodContainer.innerHTML = "";
-  fetch('https://api.spoonacular.com/recipes/complexSearch?apiKey=c37a2563cdea4ca5ba1ce4b60bd9d8a7&query=' + userInputFood.value + '&addRecipeInformation=true')
+  fetch('https://api.spoonacular.com/recipes/complexSearch?apiKey=f905894fab10422990129414c04a2913&query=' + userInputFood.value + '&addRecipeInformation=true')
   .then(response => response.json())
   .then(data => {
     for(var i=0; i<16; i++){
@@ -295,16 +295,16 @@ var searchFood = function (){
       buttonRecipe.setAttribute('type', "button");
       buttonSave.setAttribute('type', "button");
 
-      divCard.classList.add("bg-black");
-      titleFood.classList.add('border-t', 'w-full', 'text-3xl');
-      image.classList.add('px-5', 'h-auto', 'object-contain', 'max-w-sm', 'm-auto');
-      ready.classList.add('text-left', 'm-10');
-      servings.classList.add('text-left', 'm-10');
-      dairy.classList.add('text-left', 'm-10');
-      gluten.classList.add('text-left', 'm-10');
+      divCard.classList.add("bg-black", "flex", "flex-col", "gap-6", "p-4", "rounded-2xl");
+      titleFood.classList.add('text-3xl');
+      image.classList.add("rounded-2xl");
+      ready.classList.add('text-left');
+      servings.classList.add('text-left');
+      dairy.classList.add('text-left');
+      gluten.classList.add('text-left');
       buttonContainer.classList.add('flex', 'justify-center', 'items-center', 'p-4', 'md:p-5');
-      buttonRecipe.classList.add("text-black", "mr-3", "bg-white","hover:bg-blue-800","focus:ring-4","focus:outline-none","focus:ring-blue-300","font-medium","rounded-lg","text-sm","px-5","py-2.5","text-center","dark:hover:bg-blue-700", "dark:focus:ring-blue-800");
-      buttonSave.classList.add("mb-4","text-black", "bg-white","hover:bg-blue-800","focus:ring-4","focus:outline-none","focus:ring-blue-300","font-medium","rounded-lg","text-sm","px-5","py-2.5","text-center","dark:hover:bg-blue-700", "dark:focus:ring-blue-800");
+      buttonRecipe.classList.add("last-of-type:mt-auto", "text-black", "mb-5","mr-5", "bg-white","hover:bg-blue-800","focus:ring-4","focus:outline-none","focus:ring-blue-300","font-medium","rounded-lg","text-sm","px-5","py-2.5","text-center","dark:hover:bg-blue-700", "dark:focus:ring-blue-800");
+      buttonSave.classList.add("last-of-type:mt-auto", "text-black", "mb-5", "bg-white","hover:bg-blue-800","focus:ring-4","focus:outline-none","focus:ring-blue-300","font-medium","rounded-lg","text-sm","px-5","py-2.5","text-center","dark:hover:bg-blue-700", "dark:focus:ring-blue-800");
 
       titleFood.innerHTML = data['results'][i]['title'];
       image.src = data['results'][i]['image'];
@@ -364,14 +364,14 @@ var randomDrinkItems = function (){
         buttonSave.setAttribute('type', "button");
         buttonDelete.setAttribute('type', "button");
   
-        divCard.classList.add("bg-black");
-        titleDrink.classList.add('py-4', 'border-t', 'w-full', 'text-3xl');
-        imageDrink.classList.add('py-4', 'px-5', 'object-contain', 'h-auto', 'max-w-sm', 'm-auto');
-        isAlcoholic.classList.add('py-4', 'text-left', 'm-10');
-        instructions.classList.add('py-4', 'text-left', 'm-10');
-        need.classList.add('flex', 'justify-center', 'items-center', 'p-4', 'md:p-5');
-        buttonSave.classList.add("text-black", "mb-5", "pb-5", "bg-white","hover:bg-blue-800","focus:ring-4","focus:outline-none","focus:ring-blue-300","font-medium","rounded-lg","text-sm","px-5","py-2.5","text-center","dark:hover:bg-blue-700", "dark:focus:ring-blue-800");
-        buttonDelete.classList.add("text-black", "mb-5", "pb-5", "bg-white","hover:bg-red-800","focus:ring-4","focus:outline-none","focus:ring-red-300","font-medium","rounded-lg","text-sm","px-5","py-2.5","text-center","dark:hover:bg-red-700", "dark:focus:ring-red-800");
+        divCard.classList.add("bg-black", "flex", "flex-col", "gap-6", "p-4", "rounded-2xl");
+        titleDrink.classList.add('text-3xl');
+        imageDrink.classList.add("rounded-2xl");
+        isAlcoholic.classList.add('text-left');
+        instructions.classList.add('text-left', 'line-clamp-6');
+        need.classList.add('text-left');
+        buttonSave.classList.add("last-of-type:mt-auto", "text-black", "mb-5", "bg-white","hover:bg-blue-800","focus:ring-4","focus:outline-none","focus:ring-blue-300","font-medium","rounded-lg","text-sm","px-5","py-2.5","text-center","dark:hover:bg-blue-700", "dark:focus:ring-blue-800");
+        buttonDelete.classList.add("last-of-type:mt-auto", "focus:outline-none", "text-white", "bg-red-700", "hover:bg-red-800", "focus:ring-4", "focus:ring-red-300", "font-medium", "rounded-lg", "text-sm", "px-5", "py-2.5", "me-2", "mb-2", "dark:hover:bg-red-700", "dark:focus:ring-red-900");
 
         titleDrink.innerHTML = drinksArrCopy[idx].strDrink;
         imageDrink.src = drinksArrCopy[idx].strDrinkThumb;
@@ -431,14 +431,14 @@ var searchDrink = function (){
         buttonSave.setAttribute('type', "button");
         buttonDelete.setAttribute('type', "button");
   
-        divCard.classList.add("bg-black");
-        titleDrink.classList.add('py-4', 'border-t', 'w-full', 'text-3xl');
-        imageDrink.classList.add('py-4', 'px-5', 'object-contain', 'h-auto', 'max-w-sm', 'm-auto');
-        isAlcoholic.classList.add('py-4', 'text-left', 'm-10');
-        instructions.classList.add('py-4', 'text-left', 'm-10');
-        need.classList.add('flex', 'justify-center', 'items-center', 'p-4', 'md:p-5');
-        buttonSave.classList.add("text-black", "mb-5", "bg-white","hover:bg-blue-800","focus:ring-4","focus:outline-none","focus:ring-blue-300","font-medium","rounded-lg","text-sm","px-5","py-2.5","text-center","dark:hover:bg-blue-700", "dark:focus:ring-blue-800");
-        buttonDelete.classList.add("text-black", "mb-5", "pb-5", "bg-white","hover:bg-red-800","focus:ring-4","focus:outline-none","focus:ring-red-300","font-medium","rounded-lg","text-sm","px-5","py-2.5","text-center","dark:hover:bg-red-700", "dark:focus:ring-red-800");
+        divCard.classList.add("bg-black", "flex", "flex-col", "gap-6", "p-4", "rounded-2xl");
+        titleDrink.classList.add('text-3xl');
+        imageDrink.classList.add("rounded-2xl");
+        isAlcoholic.classList.add('text-left');
+        instructions.classList.add('text-left', 'line-clamp-6');
+        need.classList.add('text-left');
+        buttonSave.classList.add("last-of-type:mt-auto", "text-black", "mb-5", "bg-white","hover:bg-blue-800","focus:ring-4","focus:outline-none","focus:ring-blue-300","font-medium","rounded-lg","text-sm","px-5","py-2.5","text-center","dark:hover:bg-blue-700", "dark:focus:ring-blue-800");
+        buttonDelete.classList.add("last-of-type:mt-auto", "focus:outline-none", "text-white", "bg-red-700", "hover:bg-red-800", "focus:ring-4", "focus:ring-red-300", "font-medium", "rounded-lg", "text-sm", "px-5", "py-2.5", "me-2", "mb-2", "dark:hover:bg-red-700", "dark:focus:ring-red-900");
 
         titleDrink.innerHTML = data['drinks'][i]['strDrink'];
         imageDrink.src = data['drinks'][i]['strDrinkThumb'];
@@ -497,12 +497,12 @@ var searchDrink = function (){
       instructions.setAttribute('id', `instructions${i}`);
       buttonDelete.setAttribute('type', "button");
 
-      divCard.classList.add("bg-black", "py-4");
-      titleDrink.classList.add('py-4', 'border-t', 'w-full', 'text-3xl');
-      imageDrink.classList.add('py-4', 'px-5', 'object-contain', 'h-auto', 'max-w-sm', 'm-auto');
-      isAlcoholic.classList.add('py-4','text-left', 'px-4','m-4');
-      instructions.classList.add('py-4','text-left', 'px-4', 'm-4');
-      buttonDelete.classList.add("text-black", "mb-5", "bg-white","hover:bg-red-800","focus:ring-4","focus:outline-none","focus:ring-red-300","font-medium","rounded-lg","text-sm","px-5","py-2.5","text-center","dark:hover:bg-red-700", "dark:focus:ring-red-800");
+      divCard.classList.add("bg-black", "flex", "flex-col", "gap-6", "p-4", "rounded-2xl");
+      titleDrink.classList.add('text-3xl');
+      imageDrink.classList.add("rounded-2xl");
+      isAlcoholic.classList.add('text-left');
+      instructions.classList.add('text-left', 'line-clamp-6');
+      buttonDelete.classList.add("last-of-type:mt-auto", "focus:outline-none", "text-white", "bg-red-700", "hover:bg-red-800", "focus:ring-4", "focus:ring-red-300", "font-medium", "rounded-lg", "text-sm", "px-5", "py-2.5", "me-2", "mb-2", "dark:hover:bg-red-700", "dark:focus:ring-red-900");
 
       titleDrink.innerHTML = listOfDrinks[i].title;
       imageDrink.src = listOfDrinks[i].img;
@@ -526,36 +526,44 @@ var searchDrink = function (){
     }
     for(let i = 0; i < countFood; i++){
       const divCard = document.createElement("div");
-      const titleDrink = document.createElement("p");
-      const imageDrink = document.createElement("img");
-      const isAlcoholic = document.createElement("p");
-      const instructions = document.createElement("p");
+      const titleFood = document.createElement("p");
+      const imageFood = document.createElement("img");
+      const readyInMinutes = document.createElement("p");
+      const servings = document.createElement("p");
+      const linkRecipe = document.createElement("a");
+      const buttonCheckRecipe = document.createElement("button");
       const buttonDelete = document.createElement("button");
       
-      titleDrink.setAttribute('id', `titleDrink${i}`);
-      imageDrink.setAttribute('id', `imageDrink${i}`);
-      isAlcoholic.setAttribute('id', `isAlcoholic${i}`);
-      instructions.setAttribute('id', `instructions${i}`);
+      titleFood.setAttribute('id', `titleFood${i}`);
+      imageFood.setAttribute('id', `imageFood${i}`);
+      readyInMinutes.setAttribute('id', `readyInMinutes${i}`);
+      servings.setAttribute('id', `servings${i}`);
 
+      buttonCheckRecipe.setAttribute('type', "button");
       buttonDelete.setAttribute('type', "button");
 
-      divCard.classList.add("bg-black");
-      titleDrink.classList.add('py-4', 'border-t', 'w-full', 'text-3xl');
-      imageDrink.classList.add('py-4', 'px-5', 'object-contain', 'h-auto', 'max-w-sm', 'm-auto');
-      isAlcoholic.classList.add('text-left', 'm-5');
-      instructions.classList.add('text-left', 'm-5');
-      buttonDelete.classList.add("text-black", "mb-5", "bg-white","hover:bg-red-800","focus:ring-4","focus:outline-none","focus:ring-red-300","font-medium","rounded-lg","text-sm","px-5","py-2.5","text-center","dark:hover:bg-red-700", "dark:focus:ring-red-800");
+      divCard.classList.add("bg-black", "flex", "flex-col", "gap-6", "p-4", "rounded-2xl");
+      titleFood.classList.add('text-3xl');
+      imageFood.classList.add("rounded-2xl");
+      readyInMinutes.classList.add('text-left');
+      servings.classList.add('text-left', 'line-clamp-6');
+      buttonCheckRecipe.classList.add("last-of-type:mt-auto", "focus:outline-none", "text-black", "bg-white", "hover:bg-blue-800", "focus:ring-4", "focus:ring-red-300", "font-medium", "rounded-lg", "text-sm", "px-5", "py-2.5", "me-2", "mb-2", "dark:hover:bg-blue-700", "dark:focus:ring-red-900");
+      buttonDelete.classList.add("last-of-type:mt-auto", "focus:outline-none", "text-white", "bg-red-700", "hover:bg-red-800", "focus:ring-4", "focus:ring-red-300", "font-medium", "rounded-lg", "text-sm", "px-5", "py-2.5", "me-2", "mb-2", "dark:hover:bg-red-700", "dark:focus:ring-red-900");
 
-      titleDrink.innerHTML = listOfFood[i].title;
-      imageDrink.src = listOfFood[i].img;
-      isAlcoholic.innerHTML = listOfFood[i].type;
-      instructions.innerHTML = listOfFood[i].info;
-      buttonDelete.innerHTML='<i class="fa-solid fa-bookmark"></i> Delete';
+      titleFood.innerHTML = listOfFood[i].title;
+      imageFood.src = listOfFood[i].img;
+      readyInMinutes.innerHTML = listOfFood[i].type;
+      servings.innerHTML = listOfFood[i].info;
+      linkRecipe.href = listOfFood[i].link;
+      buttonCheckRecipe.innerHTML='<i class="fa-solid fa-check-to-slot"></i> Check Recipe';
+      buttonDelete.innerHTML='<i class="fa-solid fa-circle-xmark"></i> Delete';
       
-      divCard.appendChild(titleDrink);
-      divCard.appendChild(imageDrink);
-      divCard.appendChild(isAlcoholic);
-      divCard.appendChild(instructions);
+      divCard.appendChild(titleFood);
+      divCard.appendChild(imageFood);
+      divCard.appendChild(readyInMinutes);
+      divCard.appendChild(servings);
+      linkRecipe.appendChild(buttonCheckRecipe);
+      divCard.appendChild(linkRecipe);
       divCard.appendChild(buttonDelete);
 
       buttonDelete.addEventListener('click', () =>{
