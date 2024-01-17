@@ -1,29 +1,26 @@
-body{
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)),url(./food-image.jpg);
-    font-family: 'Roboto Slab', serif;
+body {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(./food-image.jpg);
+  font-family: "Roboto Slab", serif;
 }
 
-.text-shadow{
-    text-shadow: 8px 8px 8px rgb(0, 0, 0);
+.text-shadow {
+  text-shadow: 8px 8px 8px rgb(0, 0, 0);
 }
 
-.backdrop-filter{
-    background: rgba(255,255,255,0.05);
-    box-shadow:  0 15px 25px rgba(0,0,0, 0.1);
-    border-radius: 20px;
-    border: 1px solid white;
-    backdrop-filter: blur(20px);
+.backdrop-filter {
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  border: 1px solid white;
+  backdrop-filter: blur(20px);
+}
+header {
+  z-index: 99;
 }
 
-aside {
-    width:20%;
-    height:100%;
-    float:left;
-  }
-
-#mainResults{
-    width:80%;
-    float:right;
+.main-bg {
+  background-color: #191919;
 }
 
 #food-result-content{
@@ -52,4 +49,8 @@ aside {
     padding: 10px;
     margin: 5px;
     background-color: rgb(23, 47, 67);
+}
+.main-bg{
+    background-color: #191919;
+
 }
