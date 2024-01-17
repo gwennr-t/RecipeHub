@@ -131,7 +131,7 @@ function displayRandom() {
   });
 
   // This displays the random food
-  fetch('https://api.spoonacular.com/recipes/random?number=6&apiKey=f905894fab10422990129414c04a2913')
+  fetch('https://api.spoonacular.com/recipes/random?number=6&apiKey=e39ea64b56894c6ea15c430bd91edef5')
   .then(response => response.json())
   .then(data => {
     const modalTitle = document.createElement("p");
@@ -200,7 +200,7 @@ var randomFoodItems = function (){
   drinkSection.setAttribute("hidden","hidden");
   foodSection.removeAttribute("hidden","hidden");
   footer.removeAttribute("hidden","hidden");
-  fetch('https://api.spoonacular.com/recipes/random?number=6&apiKey=f905894fab10422990129414c04a2913')
+  fetch('https://api.spoonacular.com/recipes/random?number=6&apiKey=e39ea64b56894c6ea15c430bd91edef5')
   .then(response => response.json())
   .then(data => {
     for(var i=0;i<6;i++){
@@ -269,7 +269,7 @@ var randomFoodItems = function (){
 // Fetch the food items by the user input
 var searchFood = function (){
   foodContainer.innerHTML = "";
-  fetch('https://api.spoonacular.com/recipes/complexSearch?apiKey=f905894fab10422990129414c04a2913&query=' + userInputFood.value + '&addRecipeInformation=true')
+  fetch('https://api.spoonacular.com/recipes/complexSearch?apiKey=e39ea64b56894c6ea15c430bd91edef5&query=' + userInputFood.value + '&addRecipeInformation=true')
   .then(response => response.json())
   .then(data => {
     for(var i=0; i<16; i++){
