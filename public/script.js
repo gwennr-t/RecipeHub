@@ -144,7 +144,7 @@ var drinkItem = function (){
     
         var drinkBodyContent = document.createElement('p');
     
-        drinkBodyContent.innerHTML = '<strong>Name: </strong>' + nameValue + '<br/>' + '<img src=' + thumbValue + '/>'
+        drinkBodyContent.innerHTML = '<strong>Name: </strong>' + nameValue + '<br/>' + '<img src= "' + thumbValue + '" />'
     
         drinkBody.append(drinkBodyContent);
         drinkResultContent.append(drinkCard);
